@@ -45,9 +45,10 @@ For a small collection of freely available resources (that may be using other R 
 # Why is lifespan important in biology?   
 
 
-## What is lifespan?
 
-Organisms reproduce: they create offspring. Individuals of different species differ in their body size, in how many offspring they produce in total, and in many other traits. There's also a lot of variation in these traits between individuals of the same species. But why would this be of interest when we only want to study lifespan?
+Organisms are born, develop to maturation, reproduce, might care for their young, then die. This is a typical life-cycle. 
+
+Natural selection acts through the difference in total number of offspring produced over an individual's lifespan is a proxy of the individual's evolutionary fitness. Natural selection shapes organismal traits that affect evolutionary fitness: the better an organism is adapted, the more high quality offspring it produces. Most traits affect fitness, but some traits that describe the overall evolved strategy
 
 To answer this question, it is necessary to take a step back and ask what we exactly mean by lifespan, and by related variables, such as birth, death, survival, and mortality. Let's start with lifespan itself: **what do I mean by lifespan?** The [Cambridge Dictionary](https://dictionary.cambridge.org/dictionary/english/lifespan) gives us the following definition: "the length of time for which a person, animal, or thing exists". Ok, so animal lifespan is accordingly the time between the start of the existence of an animal and the end point of its existence. Why didn't I use the words birth and death instead? I thought an individual of an animal species that reproduces sexually starts existing when the egg cell (oocyte), provided by the female, successfully fuses with the sperm cell, provided by the male, and when the fertilized egg cell (zygote) blocks of other sperm cells to fuse, so that the oocyte can develop? 
 
