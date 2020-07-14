@@ -15,7 +15,7 @@ data(Aids2)
 str(Aids2)
 
 # Calculate mean, median, CIs
-groupwiseMean(age ~ 1, data = Aids2, boot = TRUE, R = 1000, traditional = FALSE, bca = TRUE, percentile = TRUE)
+groupwiseMean(age ~ 1, data = Aids2, boot = TRUE, R = 1000, traditional = FALSE, bca = FALSE, percentile = TRUE)
 groupwiseMedian(age ~ 1, data = Aids2, bca = TRUE, percentile = TRUE, basic = TRUE)
 
 # Plot histogram and indicate mean and median values

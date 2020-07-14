@@ -1,24 +1,27 @@
 ###CODEBLOCK 3###
 
-# Change previous data
-lifespan_data <- c(1,3,4,4,4,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,6,6,7,7,7,7,7,7,7,7,7,7,7,7,8,8,8,9,9,13,15,20)
+#Load packages
+library(rcompanion)
+library(dplyr)
 
-# How many lifespans?
-length(lifespan_data)
+# Load previous lifespans
+lifespan_data <- c(1,3,4,4,4,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,6,6,7,7,7,7,7,7,7,7,7,7,7,7,8,8,8,9,9,13)
 
-# Calculate mean / average lifespan
-mean(lifespan_data)
+# We will use two functions of the package library 'rcompanion' to calculate confidence intervals of the mean and median:
+# 'groupwiseMean' and 'groupwiseMedian' 
 
-# Calculate median lifespan
-median(lifespan_data)
+# First, convert our vector of lifespan values into a data frame 
+# See eg '?groupwiseMean' for a description of the function: 
+# Under 'Arguments' you find data requirements, under 'Value' you find properties of the output
 
-# Maximum lifespan
-max(lifespan_data)
+lifespan_data <- lifespan_data %>% as.data.frame() %>% rename(., lifespan = .) #we use pipes (%>%) from dplyr here
 
-# Plot
-hist(lifespan_data, breaks = 15, main = "Our made-up lifespan data")
-abline(v = mean(lifespan_data), col = "blue", lwd = 3.5, )
-abline(v = median(lifespan_data), col = "red", lwd = 3.5)
-text(5.4, 12.3, label = 'Mean', cex = 1.2)
-text(7, 12.3, label = 'Median', cex = 1.2)
+groupwiseMean(lifespan ~ 1, data = lifespan_data, boot = TRUE, R = 1000, traditional = FALSE, bca = TRUE, percentile = TRUE)
+
+groupwiseMedian(lifespan ~ 1, data = lifespan_data, bca = TRUE, percentile = TRUE, basic = TRUE)
+
+
+
+                        
+
 
