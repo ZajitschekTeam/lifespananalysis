@@ -29,18 +29,18 @@ The arithmetic mean, also called the *mean* or the *average*, is probably the fi
 
 Why bother with the mean at all then? In statistical testing, which we'll come to soon, we often assume underlying distributions that allow us to estimate variances / spread around the mean to be able to perform powerful statistical tests (parametric tests, such as regression, ANOVA, linear models, etc.). Non-parametric tests in general do not assume any distributional properties (such as tests comparing medians), have less power and are not as flexible to incorporate multiple covariates (such as body size or genotype of an individual).
 
-![](https://github.com/zajitschekteam/lifespananalysis/blob/master/images/pushpin.svg?raw=true) ***Note***   
+![](https://github.com/ZajitschekTeam/lifespananalysis/blob/master/images/pushpin.svg?raw=true) ***Note***   
 In order to be transparent in your analyses, it is good practice to report means and medians, maybe in addition with histograms, to show the reader the nature of the analysed data. 
 
 The measure of central tendency, like the mean, is important. But we also have to report the spread around the mean: how long are the tails of the distribution of lifespan values around the mean?
 
 Check out this [interactive web app](https://shiny.abdn.ac.uk/Stats/apps/app_normal/) (create in R, as a shiny app, by the way) . On the left side, tick the box "**Check the box to update instantly**", increase sample size (**Sample: Number of observations**) to > 1000, and change **Plot type** to **Overlay Normal Density**. Now you can change the variation / spread around the mean by changing the standard deviation (**True Population Standard Deviation: σ**). See what happens to the tails of the displayed distribution.
 
-![](https://github.com/zajitschekteam/lifespananalysis/blob/master/images/pushpin.svg?raw=true) 
+![](https://github.com/ZajitschekTeam/lifespananalysis/blob/master/images/pushpin.svg?raw=true) 
 Whenever you report mean or median, a measure of variation around these statistics have to be reported as well. This is most often either the standard deviation, the standard error, or the 95% confidence intervals. The next R codeblock shows how to calculate them for mean and median values.
 
 
-## TOOLS
+## 
 
 
 </exercise>
