@@ -1,18 +1,18 @@
 ---
 title: 'Chapter 1: Getting started: Introduction to Lifespan-Analysis'
 description:
-  'This chapter will introduce background, definitions, and examples of lifespan analysis'
+  'In this chapter, we will go over some background, definitions for lifespan-analysis'
 prev: null
 next: chapter2
 type: chapter
 id: 1
 ---
 
-<exercise id="1" title="Preface & Disclaimer">
+<exercise id="1" title="Preface">
 
 # About this course
 
-Hi and welcome, I am **[Felix Zajitschek](https://felix.zajitschek.net), an evolutionary biologist, working on topics such as aging and life-history that require to analyse or incorporate lifespan**. This course was co-developed with **[Susi Zajitschek (LJMU)](https://www.ljmu.ac.uk/about-us/staff-profiles/faculty-of-science/school-of-biological-and-environmental-sciences/susanne-zajitschek)** and is meant mainly as a primer for students who would like to know more about various methods which can be used to accomplish this. It will give you an overview of what can be done, how to perform a number of specific analyses, and where to go when you need to analyse more complex data.
+Hi and welcome, I am **[Felix Zajitschek](https://felix.zajitschek.net), an evolutionary biologist, working on topics such as aging and life-history that require to analyse or incorporate lifespan**. This course was co-developed with **[Susi Zajitschek (LJMU)](https://www.ljmu.ac.uk/about-us/staff-profiles/faculty-of-science/school-of-biological-and-environmental-sciences/susanne-zajitschek)** and is meant mainly as a primer for students who would like to know more about various methods which can be used to analyse lifespan. It will give you an overview of what can be done, how to perform a number of specific analyses, and where to go when you need to analyse more complex data.
 
 All the actual statistical analyses are performed in the [software R](https://www.r-project.org/about.html), and you will have the opportunity to run R software scripts right here, on this website, without the need to install software on your computer.
 
@@ -66,37 +66,10 @@ The life-history of an individual animal describes the time points of events, su
 
 It's correct that even under the most standardized lab conditions there might be variation in variables we don't happen to measure / we can't measure, and therefore their effects can't be modelled to predict individual lifespan with greater certainty. However, there  seems to be component of a random / chaotic / stochastic variation in gene expression that affects lifespan and will, even in theory, be always in the way of predicting individual lifespan with absolute certainty.
 
-# A short glimpse at some lifespan parameters
 
-While we can measure lifespan for individual animals, survival and mortality rates are variables of populations of animals, not of single individuals. 
 
 
 
 </exercise>
 
-<exercise id="3" title="The structure of this course">
 
-# Overview
-
-This is meant as a first step to get you started.  Here's an overview of the workflow:
-
-![](https://github.com/SusZaj/metaanalysis/blob/master/images/overview2.png?raw=true)
-<br>
-<br>
-
-## Some examples 
-Add here
-
-- [Effects of nutrient limitation on sperm and seminal fluid: a systematic review and meta‐analysis (Macartney et al. 2019)](http://www.bonduriansky.net/Macartney_et_a_2019_Biological_Reviews.pdf) [Data & R code on osf.io](https://osf.io/aqw8u/)    
-*Macartney, E.L., Crean, A.J., Nakagawa, S. and Bonduriansky, R. 2019. Effects of nutrient limitation on sperm and seminal fluid: a systematic review and meta-analysis. Biological Reviews 94:1722-1739*
-
-- [The repeatability of behaviour: a meta-analysis (Bell et al. 2009)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3972767/).   
-*Bell, A. M., Hankison, S. J., & Laskowski, K. L. (2009). The repeatability of behaviour: a meta-analysis. Animal behaviour, 77(4), 771–783. https://doi.org/10.1016/j.anbehav.2008.12.022*
-
-- [Meta-analysis reveals weak associations between intrinsic state and personality (Niemelä & Dingemanse 2018)](https://royalsocietypublishing.org/doi/10.1098/rspb.2017.2823).    
-*Niemelä, P. T., & Dingemanse, N. J. (2018). Meta-analysis reveals weak associations between intrinsic state and personality. Proceedings. Biological sciences, 285(1873), 20172823. https://doi.org/10.1098/rspb.2017.2823*
-
-- [The effect of dietary restriction on reproduction: a meta-analytic perspective (Moatt et al. 2016)](https://bmcevolbiol.biomedcentral.com/articles/10.1186/s12862-016-0768-z).   
-*Moatt, J. P., Nakagawa, S., Lagisz, M., & Walling, C. A. (2016). The effect of dietary restriction on reproduction: a meta-analytic perspective. BMC evolutionary biology, 16(1), 199. https://doi.org/10.1186/s12862-016-0768-z*
-
-</exercise>
