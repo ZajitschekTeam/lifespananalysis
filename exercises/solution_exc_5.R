@@ -7,7 +7,7 @@
 set.seed(112)  
 
 # How many values do we want to draw (=sample size)?
-N <- ____ 
+N <- 1000 
 
 # Randomly draw N samples from a Chi-square distribution; test what happens when you change the 'df' value
 lifespan_rchisq <- rchisq(N, df = 8)  #try also: rlnorm(N, meanlog = 0, sdlog = 1)

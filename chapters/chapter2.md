@@ -1,7 +1,7 @@
 ---
 title: 'Chapter 2: Summary statistics for lifespan'
 description:
-  'Overview of useful summary statistics and how to calculate them.'
+  'Summary statistics and simulation'
 prev: chapter1
 next: chapter3
 type: chapter
@@ -56,6 +56,25 @@ Sounds good. To use those data, we load the data set to do the calculations and 
 <codeblock id="4">
 </codeblock>
 
-
-
 </exercise>
+
+<exercise id="2" title="Lifespan distributions and how to simulate data">
+
+# Simulate lifespan data 
+
+Age-dependent survival - when and how many individuals of a cohort die - can be described by a variety of different distributions. Let's have a look at the Figure from [Colchero et al. (PNAS, 2016)](https://doi.org/10.1073/pnas.1612191113) again:
+![](https://github.com/ZajitschekTeam/lifespananalysis/blob/master/images/ColcheroPNAS2016.png?raw=true) 
+We see smoothed lifespan distributions for females (red) and males (blue) for several primate species, with the two bottom rows showing lifespan distributions of different human populations. Vertical lines show life expectancies, calculated as mean lifespans. Only in the data from Sweden (2000-2009) and Japan (2012), infant mortality is very low. High frequencies of death at early and and late ages can be modelled with specific distributions (e.g. bathtub curved distributions). Whether infant or young age mortality is pronounced, depends very much on the studied species and on the circumstances in which lifespan was measured. For fruit flies, for example, young age adult mortality is not important. Here, we will go through some steps to simulate data that are quite similar to the Swedish and Japanese lifespan data above.
+
+These simulations should give you a better feeling of the nature of lifespan data. We will see that it might not be necessary to fit a model to your lifespan data that predicts these distributions. However, if we decide to use linear models, we will have to make sure that the conditional distributions of lifespan data is normally distributed. This can often be achieved not only by choosing appropriate explanatory variables, but also by employing *generalized* (in contrast to *general*) linear models that allow to model response variables from different distributions. We will also touch on modelling instantaneous mortality rate (hazard rate) in Chapter 3, which is a parametric technique that requires to fit models with different underlying distributions to mortality data. Again, I believe that to be able to create / simulate data with certain properties yourself will be helpful to gain a deeper understanding of what you are doing in your analyses and might open up new ways of analysing your data.
+
+<codeblock id="5">
+Use a Chi-square distribution to simulate data. Set the sample size (number of values to be drawn) to 1000.
+</codeblock>
+
+This was a bit of an exercise to show what you can do in R. For lifespan-analysis using linear models, we will see in the next chapter that choice of error distributions is important.
+
+As an overview for available distributions in R in general (not necessarily for modelling error in linear models), have a look here:
+
+https://cran.r-project.org/web/views/Distributions.html
+
