@@ -1,22 +1,17 @@
 ---
-title: 'Chapter 4: Meta-analysis'
+title: 'Chapter 4: Survival-analysis'
 description:
-  'The meta-analysis & quality checks'
+  'Analysis of survival curves'
 prev: /chapter3
 next: /chapter5
 type: chapter
 id: 4
 ---
 
-
-<exercise id="1" title="Meta-analysis, evidence summary & assessment of certainty">
-
-Once all the data are prepared, we can run our first meta-analytical model and assess the overall effect that we are interested in, across studies: the mean effect size, weighted by the precision of the observed effect sizes. We will assess the effect based on the model summary and, visually,  with forest plots. Since we probably have other variables that could potentially explain variation in our data, we will try to account and test some of these other variables in slightly more complex models. 
-
-We are most interested in being able to make a statement on differences between treatment and control which are based on differences in biological response, and not on methodological or other technical differences between studies or study types, for example. We will go through some ways of assessing the influence of heterogeneity in our data, and whether we have any indication of publication bias in our data set.    
+<exercise id="1" title="Survival analysis">
 
 
-This is all best done hands-on:
+Definition:
 
 # Worked Example
 
