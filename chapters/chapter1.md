@@ -23,13 +23,15 @@ All the actual statistical analyses are performed in the [software R](https://ww
 We will see why lifespan is a very important biological characteristic, explain what different measures of lifespan (such as average lifespan, survival, mortality, etc.) there are and why, and then go through worked examples.
 
 You will also have the opportunity to perform steps directly in R, without having to open it locally. This will look like this grey block below. Just click on the "Run Code" button and see what happens. 
-(You may need some patience - a couple of minutes - when you run the first  code block. This is because the R environment has to be loaded. Sometimes it may fail to connect the first time when you click RUN, so just re-run).
+(You may need some patience - a couple of minutes - when you run the first code block. This is because the R environment has to be loaded. Sometimes it may fail to connect the first time when you click RUN, so just re-run).
 
 <codeblock id="intro_1">
 Write your name where the dotted line is!
 </codeblock>
 
 You can also use the "Show hints", "Show solution" and "Reset" tabs. Don't worry about doing in anything "wrong" - you will not be breaking these code blocks! You can also use these blocks to calculate whatever else you think of - try for example writing "1+1", and run it again! (For advanced R users - you can't import your own datasets, but of course could add them manually!)
+
+The R code will be a combination of base R and tidyverse (dplyr) R style. The latter can be identified by the *pipe* operator (%>%), part of the *magrittr* package that is automatically loaded as a dependency when loading *dplyr* (which, again, is part of the *tidyverse*). You can run all the code as is, without having used R at all before, but if you are starting your career in science I strongly advise you to get on board using and learning *tidyverse* syntax. Here is a good short introduction: https://dplyr.tidyverse.org/articles/dplyr.html. I also predict that once you used RStudio and markdown on your own computer, you'll probably ditch base R (I wished I had made the switch earlier). For base R, this is the official [intro](https://cran.r-project.org/doc/manuals/r-release/R-intro.html), but these ones are more digestible [(1)](https://rstudio.com/wp-content/uploads/2016/10/r-cheat-sheet-3.pdf), [(2)](https://rpubs.com/rslbliss/r_intro_ws).
 
 Each section may contain links, such as this [link to google scholar](https://scholar.google.com/), questions to answer (including feedback on getting it right or wrong), and tasks to do on your own - as indicated by this laptop icon  ![](https://github.com/zajitschek/lifespananalysis/blob/master/images/computertaskicon.svg?raw=true). If I think a note or resource is particularly useful, you will see this pushpin  ![](https://github.com/zajitschek/lifespananalysis/blob/master/images/pushpin.svg?raw=true).
 <br>
@@ -65,8 +67,6 @@ Why is all this again important when we only want to analyse lifespan of a certa
 The life-history of an individual animal describes the time points of events, such as birth, developmental stage, begin of maturity/adulthood, age at first reproduction, age  and number of offspring of reproductive events, post-reproductive period, and age at death. A life-history also includes rates (change of traits over time), such as growth rate or reproductive rate. Life-histories can be described on the level of a species, a population, or for a single individual. Life-history traits are often very plastic. This means they can change, depending on environmental conditions (*phenotypic plasticity*). Lifespan is such a composite trait (a trait that is affected by so many variables), that even clones (individuals with identical genomes) in highly standardized and controlled laboratory environments don't all die at the same age (eg male Daphnia clones  (n = 50) with a median lifespan of 83 days and a 95% confidence interval around the median, from 77 to 91 days, reported in [Constantinou et al. 2019](https://www.sciencedirect.com/science/article/pii/S0531556519300762)). 
 
 It's correct that even under the most standardized lab conditions there might be variation in variables we don't happen to measure / we can't measure, and therefore their effects can't be modelled to predict individual lifespan with greater certainty. However, there  seems to be component of a random / chaotic / stochastic variation in gene expression that affects lifespan and will, even in theory, be always in the way of predicting individual lifespan with absolute certainty.
-
-
 
 
 

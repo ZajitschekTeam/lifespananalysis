@@ -43,23 +43,17 @@ Let's use the lifespan values in the 'Aids2' data set we used previously. So far
 No hints or solution necessary here.
 </codeblock>
 
-The first thing we see is that female density distributions of lifespan are very flat compared to distributions of males, except in state category "other". We also see that this is both due to longer tails on the right (more long lifespans in females compared to males) and on the left (more short lifespans  in females compared to males). There is an additional variable "T.categ" that describes the mode of transmission. Mothers can transmit the infection to their embryos, indicated as level "mother" for variable "T.categ". This is the reason for the long distribution tails in female lifespan. We can either exclude those cases, or we decide that we are actually interested in mode of transmission and the apparent interaction between "sex" and "T.categ" (= "sex" affecting the effect that "T.categ" has on lifespan).
+The first thing we see is that female density distributions of lifespan are very flat compared to distributions of males, except in state category "other". We also see that this is both due to longer tails on the right (more long lifespans in females compared to males) and on the left (more short lifespans  in females compared to males). There is an additional variable "T.categ" that describes the mode of transmission. Mothers can transmit the infection to their embryos, indicated as level "mother" for variable "T.categ". Might this be the reason for the long left distribution tails in female lifespan? This would mean that especially female babies are affected. We can have a look whether that is the case. We can then either exclude those cases, or we decide that we are actually interested in mode of transmission and the apparent interaction between "sex" and "T.categ" (= "sex" affecting the effect that "T.categ" has on lifespan). 
 
-## Calculating effect sizes from inferential statistics
-
-This is necessary, when means & variances are not reported, and not available in a figure, but overall statistics indicate outcomes (and are fully disclosed, i.e. type of test, degrees of freedom, test statistic are available). 
-
-![](https://github.com/SusZaj/metaanalysis/blob/master/images/pushpin.svg?raw=true)  ***Note:*** If this is incomplete, but the study highly relevant for inclusion, your last resort is to write to the authors and ask for the missing information. Ideally they can then provide the means and variances that you're after...
-
-The R package *compute.es* allows us to not only compute various effect sizes from descriptive statistics, but also from inferential statistics. We will go over this using Macartney's data (also part of the **Worked Example** in Chapter 4).
-
-This example calculates the effect size for an Anova (using F statistics). To calculate this based on a T-test, specify *a.tes* instead of *a.fes*, and *t = t*
-
-Try this by rewriting the relevant bits in the codeblock below! You might need to check out the hint to get it to work.
-
-<codeblock id="fish_es">
-The exclamation mark "!" in R code specifies "not" - so you will have to switch it around in the second line of code, to apply it to it to the right subset of data. It's a little twisted here, we give a double negative command: !is.na(t) means: do not use (!) the rows that show na (is.na) in column "t". For more info check section 5.2.2. [here](https://r4ds.had.co.nz/transform.html) 
+<codeblock id="7">
+No hints or solution necessary here.
 </codeblock>
+
+</exercise>
+
+<exercise id="3" title="Bayesian with rstanarm::stan_glmer">
+
+Bayesian Statistics: 
 
 
 
