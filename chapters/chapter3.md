@@ -1,65 +1,49 @@
 ---
-title: 'Chapter 3: Data extraction & preparation'
+title: 'Chapter 3: Statistical tests of effects on lifespan'
 description:
-  'We have the papers- what now?'
+  'Linear Models'
 prev: chapter2
 next: chapter4
 type: chapter
 id: 3
 ---
 
-<exercise id="1" title="Getting the data from the literature">
+<exercise id="1" title="Jumping right into GLMM">
 
-# So what happens after you have collected all the papers, and you would like to get started with data collection?
+# Lifespan-analysis in generalized linear mixed models (GLMM)
 
 
-## What general information do you need to extract?
+## What are GLMM?
 
-Think about all the information you would like to transfer into your spreadsheet. Don't just go for basic paper identifiers, the more information you extract now, the easier it will be to actually to back if you need to double check outliers at a later stage. Have a look for example at [Macartneys' excel spreadsheet](https://osf.io/kgm7z/). 
+We won't go into too much detail in explaining GLMM here, as you have vast amounts of online resources and excellent textbooks for this available). 
 
-## What data do you need to extract?
+Simple linear regression models describe the relationship between values of a response variable and explanatory variables, with a constant change in explanatory variable resulting in a constant change in the response variable (= linear relationship), implying a normally distributed response variable. Generalized linear models (GLM) allow for different error distributions than the normal distribution and for different link functions (that's what we might want for lifespan data). Generalized linear mixed models (GLMM) further allow for the inclusion of random effects, which can be used to model grouping structures in our data that are often not the main focus of the analyses.
 
-In the ideal case, means and SD or SE as well as sample sizes for your traits of interest are provided in the paper that you are examining, and can simply be transcribed into your data collection sheet. No problem there - if those data ARE provided! More often, however, these results are represented in figures. At the most basic, you can enlarge the figure on your screen and measure means and SE's with a ruler (don't forget to convert your measurements according to the Figure's axes!), and add the crude results into your spreadsheet. This may be sufficient for the exercise here, but it is not likely to be very accurate, more error-prone than semi-automated methods, and is very time consuming.
+Here, we will focus on GLMM since they have become standard in recent years. 
 
-## Extracting means and variances from Figures
+## Mean lifespan and GLMM
 
-Assuming that you will have many Figures from many studies, for your own meta analysis we recommend to use the R package *metaDigitise*. This package allows to accurately measure the means and variance from  screenshots of plots. 
-*metaGear* also looks very promising, as it automatically saves relevant figures. However, we have had issues with extracting information from bar plots and tweaking did not seem possible - so careful visual inspection and doublechecking of the extracted information with the initial figures (and their axes) will likely be a relatively time-consuming part of the process.
+Please be aware that this will only be a scratch on the surface. Together, we'll walk through the steps in setting up GLMM, running diagnostics (checking whether the assumptions of the model are violated), and interpreting and plotting results. There is an ever growing variety of available R packages for running GLMM. Here, I will use the most widely used GLMM package in R, called *lme4*, and I will give an example of how to perform the equivalent model in a Bayesian framework, using the R package *rstanarm*. 
 
-However, possible online alternatives are also available, for example [WebPlotDigitizer](https://automeris.io/WebPlotDigitizer/), that may be either downloaded and used locally or as a web-based resource (perhaps this may be the way to go if you only have very few Figures to measure?). Here, you upload your figure file, specify the chart type & define your axes, and may manually add datapoints on an enlarged subsection. This gives you very accurate estimates for your selected datapoints.
-
-For more information and an overview and pros and cons of the most common image-digitising tools have a look at Table 1 in the original [*metaDigitise* publication](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.13118): Pick, J. L., Nakagawa, S., & Noble, D. W. (2019). Reproducible, flexible and high‐throughput data extraction from primary literature: The metaDigitise r package. Methods in Ecology and Evolution, 10(3), 426-431.
+If you are not interested in modelling mean lifespan (out of concerns that we mentioned previously), you can jump straight to the next Chapter, where I introduce a set of models that come under the umbrella term ***Survival analysis***.
 
 </exercise>
 
-<exercise id="2" title="Preparing your data for Meta-analysis">
+<exercise id="2" title="lme4::glmer anyone?">
 
-If you have a few data points extracted (either form Figures or Tables), you can now calculate effect sizes. What are they, and how do I get them?
+**GLMER**: "Generalized Linear Mixed Effects in R"
 
-### What is an "effect size"?
->'Effect size' is a way to quantify the size of the difference between two groups. It is particularly valuable for quantifying the effectiveness of a particular intervention or treatment. It looks at the relative outcome of the treatment, and allows us to use this (and the associated measures of uncertainty) as the basis to compare multiple studies. This can make generalisations even across different methodologies and taxa possible. 
->
->A common effect size measure is the <u>s</u>tandardized <u>m</u>ean <u>d</u>ifference (SMD), calculated as the difference in means, standardized (divided) most commonly by the pooled SD of the two compared sets of data values (treatment and control). SMD comes in two versions: *Cohen's d* and *Hedges' g*. *Hedges' g* is an unbiased version of *Cohen's d*, but gives very similar results. If you have small sample sizes, use of  *Hedges' g* might be recommended.
+The notation "package name"::"function name" refers specifically to the function of the specified package in R and can be used in case there might be functions with identical names in a package that is loaded in your active R session.
 
-![](https://github.com/SusZaj/metaanalysis/blob/master/images/computertaskicon.svg?raw=true)  
-We can calculate different types of effect sizes in the R package **metafor**. The function *escalc* allows us to call "SMD" (Standardised Mean Difference, Hedges' *g* in *metafor*) or "ROM" (log transformed ratio of means). Which one you use is up to your preference; overall they should give consistent answers. Read more about their respective differences in a clinical context [here](https://www.cebm.net/2020/04/tip-for-data-extraction-for-meta-analysis-29/).
+Now, we are interested in testing whether individuals in different conditions, maybe experimental treatments, affect mean lifespan.
 
-```
-library(metafor)
-#calculate standardized mean difference
-SMD <- escalc(measure = "SMD", data=YourData, m1i=TreatMean, m2i = ControlMean, sd1i=TreatSD, sd2i= ControlSD, n1i = NTreat, n2i=NControl, append = FALSE) 
+Let's use the lifespan values in the 'Aids2' data set we used previously. So far, we only calculated the overall mean and median, and we plotted the histogram of these data. We will first look at the data structure and its description again, to see which effects we can test (normally you would first have a sound hypothesis, design a study, collect the data, then run the types of analyses that you planned to run when designing the whole study).
 
-#calculate ratio of means
-ROM <- metafor::escalc(measure = "ROM", data=YourData, m1i=TreatMean, m2i = ControlMean, sd1i=TreatSD, sd2i= ControlSD, n1i = NTreat, n2i=NControl, append = FALSE
-```
-
-Let's give this a go using Macartney's data.
-
-<codeblock id="fish_2a">
+<codeblock id="6">
 No hints or solution necessary here.
 </codeblock>
 
-Note that there will be quite a few missing data in this list. This may be due to the fact that perhaps no standard deviation is provided, only standard errors. In this case you have different options - calculate yourself SD from SE's for example, or use a different package - see Chapter 4 for how to use **compute.es**. Another reason why no effect sizes are calculated in this step might be perhaps no information on means and variances is provided, only inferential statistics.
+The first thing we see is that female density distributions of lifespan are very flat compared to distributions of males, except in state category "other". We also see that this is both due to longer tails on the right (more long lifespans in females compared to males) and on the left (more short lifespans  in females compared to males). There is an additional variable "T.categ" that describes the mode of transmission. Mothers can transmit the infection to their embryos, indicated as level "mother" for variable "T.categ". This is the reason for the long distribution tails in female lifespan. We can either exclude those cases, or we decide that we are actually interested in mode of transmission and the apparent interaction between "sex" and "T.categ" (= "sex" affecting the effect that "T.categ" has on lifespan).
 
 ## Calculating effect sizes from inferential statistics
 
