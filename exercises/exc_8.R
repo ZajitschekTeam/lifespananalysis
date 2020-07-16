@@ -4,7 +4,7 @@
 suppressMessages((library(dplyr))
 suppressMessages((library(lme4))
 suppressMessages((library(lmerTest))
-data1 <- read.csv("Dryad_Zajitschek_etal_2016_ProcB_Data.csv")
+data1 <- read.csv("expevol_male_flies.csv")
 data1 <- data1 %>% mutate(across(where(is.integer), as.factor))
           
 # Remove random intercept for 'cage' ((1|cage)

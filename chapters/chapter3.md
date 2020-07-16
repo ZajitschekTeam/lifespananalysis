@@ -44,7 +44,7 @@ Let's analyse the lifespan values of male flies that evolved on 3 different diet
 To run code that is commented out, delete the # in front of the code (in each line that you want to run).
 </codeblock>
 
-We have a good sample size (n = 8578 individual lifespan values) and we see that about 40 male flies were kept in a single experimental vial, with 6 vials per diet treatment combination (cage diet x assay diet).
+We have a good sample size and we see that about 40 male flies were kept in a single experimental vial, with 12 vials per diet treatment combination (cage diet x assay diet), and with 4 cages per diet (=cagediet) in which flies evolved for about 25 generations.
 
 <codeblock id="7">
 No hints or solution necessary here.

@@ -5,7 +5,7 @@ suppressMessages(library(rcompanion))
 suppressMessages(library(dplyr))
 
 # Load fly lifespan data, exctracted from the data set for Zajitschek et al 2016 Proc B
-data1 <- read.csv(Dryad_Zajitschek_etal_2016_ProcB_Data.csv)
+data1 <- read.csv("expevol_male_flies.csv")
 
 # Have a look at its structure
 str(data1)
