@@ -1,33 +1,46 @@
 ###CODEBLOCK 6###
 
 #Load packages
-library(ggplot)
+suppressMessages(library(ggplot2))
+suppressMessages((library(dplyr))
 
-# View built-in data sets
-data(Aids2)
+# Load fly lifespan data, extracted from the data set for Zajitschek et al 2016 Proc B
+data1 <- read.csv("Dryad_Zajitschek_etal_2016_ProcB_Data.csv")
 
-# View details about the 'Aids2' data
-?Aids2
-
-# For this exercise, we are only interested in the response variable 'age',
-# and in the variables 'sex' and 'state'.
-# Our main question is: Is there a sex difference in lifespan?
-
-# ALWAYS plot the data before running models:
-	-> get a feeling for the data and identify possible outliers / errors
-
-theme_set(theme_classic())
+# Always change numeric values (both data types 'int' and 'num') that don't hold any 
+# meaningful numeric information into factors
+data1 <- data1 %>% mutate(across(where(is.integer), as.factor))
           
-# Plot
-g <- ggplot(Aids2, aes(age))
-g + geom_density(aes(fill=factor(sex)), alpha=0.8) + 
-       facet_grid(state ~ 1) + 
-       labs(title="Density plot", 
-       subtitle="Lifespan grouped by sex and state",
-       caption="Source: 'Aids2' data set",
-       x="(Lifespan (age at death)",
-       fill="State")
+# Have a look at its structure
+str(data1)
+glimpse(data1)
 
+# How many source cages and how many lifespan values per cage          
+data1 %>% group_by(cage) %>% tally()
+
+# How many assay diets and how many lifespan values per cage per assay diet   
+data1 %>% group_by(cage, assaydiet) %>% tally()
+
+# How many vials per diet treatment combination
+data1 %>% group_by(cage, assaydiet) %>% summarise(n_distinct(vial))
+
+# How many lifespan values per vial (the lowest level)          
+data1 %>% group_by(cage, assaydiet, vial) %>% tally()
+         
+# If you want to print all rows, use the following code
+# data1 %>% group_by(cage, assaydiet, vial) %>% tally() %>% 
+#    print(n = 300)
+
+# Plot histograms 
+theme_set(theme_classic())
+g <- ggplot(data1, aes(lifespan))
+g + geom_histogram(aes(fill=factor(assaydiet)), , bins= 15, alpha=0.8) + 
+  facet_grid(cagediet ~ 1) + 
+  labs(title="Density plot", 
+       subtitle="Lifespan grouped by source cage and coloured by assay diet",
+       caption="Source: 'Zajitschek 2016 Proc B",
+       x="(Lifespan (age at death)[days of adulthood]",
+       fill="Assay diet")
 
 
 

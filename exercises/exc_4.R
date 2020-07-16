@@ -1,29 +1,27 @@
-###CODEBLOCK 3###
+###CODEBLOCK 4###
 
 #Load packages
-library(rcompanion)
-library(dplyr)
+suppressMessages(library(rcompanion))
+suppressMessages(library(dplyr))
 
-# View built-in data sets
-data()
+# Load fly lifespan data, exctracted from the data set for Zajitschek et al 2016 Proc B
+data1 <- read.csv(Dryad_Zajitschek_etal_2016_ProcB_Data.csv)
 
-# View details about the 'Aids2' data
-?Aids2
+# Have a look at its structure
+str(data1)
 
-# Load 'Aids2' data set and have a look at its structure
-data(Aids2)
-str(Aids2)
-
+data1 <- data1 %>% mutate(across(where(is.integer), as.factor))
+          
 # Calculate mean, median, CIs
-groupwiseMean(age ~ 1, data = Aids2, boot = TRUE, R = 1000, traditional = FALSE, bca = TRUE, percentile = TRUE)
-groupwiseMedian(age ~ 1, data = Aids2, bca = TRUE, percentile = TRUE, basic = TRUE)
-
+groupwiseMean(lifespan ~ 1, data = data1, boot = TRUE, R = 1000, traditional = FALSE, bca = TRUE, percentile = TRUE)
+groupwiseMedian(lifespan ~ 1, data = data1, boot= T, bca = TRUE, percentile = TRUE)
+          
 # Plot histogram and indicate mean and median values
-hist(Aids2$age, main = "Histogram of Aids2 lifespan data")
-abline(v = mean(Aids2$age), col = "blue", lwd = 3.5, )
-abline(v = median(Aids2$age), col = "red", lwd = 3.5)
-text(33, 584, label = 'Mean', cex = 1.2)
-text(43, 584, label = 'Median', cex = 1.2)
+hist(data1$lifespan, main = "Histogram of lifespan data")
+       abline(v = mean(data1$lifespan), col = "blue", lwd = 3.5, )
+       abline(v = median(data1$lifespan), col = "red", lwd = 3.5)
+       text(59, 1575, label = 'Mean', cex = 1.2)
+       text(47, 1625, label = 'Median', cex = 1.2)
 
 
                         

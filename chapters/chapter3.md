@@ -1,5 +1,5 @@
 ---
-title: 'Chapter 3: Statistical tests of effects on lifespan'
+title: 'Chapter 3: Inferential statistics I: Tests of effects on mean lifespan'
 description:
   'Linear Models'
 prev: chapter2
@@ -11,6 +11,7 @@ id: 3
 <exercise id="1" title="Jumping right into GLMM">
 
 # Lifespan-analysis in generalized linear mixed models (GLMM)
+
 
 
 ## What are GLMM?
@@ -35,27 +36,39 @@ If you are not interested in modelling mean lifespan (out of concerns that we me
 
 The notation "package name"::"function name" refers specifically to the function of the specified package in R and can be used in case there might be functions with identical names in a package that is loaded in your active R session.
 
-Now, we are interested in testing whether individuals in different conditions, maybe experimental treatments, affect mean lifespan.
+Now, we are interested in testing whether individuals in different conditions, such as experimental treatments, affect mean lifespan.
 
-Let's use the lifespan values in the 'Aids2' data set we used previously. So far, we only calculated the overall mean and median, and we plotted the histogram of these data. We will first look at the data structure and its description again, to see which effects we can test (normally you would first have a sound hypothesis, design a study, collect the data, then run the types of analyses that you planned to run when designing the whole study).
+Let's analyse the lifespan values of male flies that evolved on 3 different diets, and were tested on 3 different diets, used previously. So far, we only calculated the overall mean and median, and we plotted the histogram of these data. We will first look at the data structure and at the other variables again, to see which effects we can test (normally you would first have a sound hypothesis, design a study, collect the data, then run the types of analyses that you planned to run when designing the whole study).
 
 <codeblock id="6">
-No hints or solution necessary here.
+To run code that is commented out, delete the # in front of the code (in each line that you want to run).
 </codeblock>
 
-The first thing we see is that female density distributions of lifespan are very flat compared to distributions of males, except in state category "other". We also see that this is both due to longer tails on the right (more long lifespans in females compared to males) and on the left (more short lifespans  in females compared to males). There is an additional variable "T.categ" that describes the mode of transmission. Mothers can transmit the infection to their embryos, indicated as level "mother" for variable "T.categ". Might this be the reason for the long left distribution tails in female lifespan? This would mean that especially female babies are affected. We can have a look whether that is the case. We can then either exclude those cases, or we decide that we are actually interested in mode of transmission and the apparent interaction between "sex" and "T.categ" (= "sex" affecting the effect that "T.categ" has on lifespan). 
+We have a good sample size (n = 8578 individual lifespan values) and we see that about 40 male flies were kept in a single experimental vial, with 6 vials per diet treatment combination (cage diet x assay diet).
 
 <codeblock id="7">
 No hints or solution necessary here.
 </codeblock>
 
+
+
+<codeblock id="8">
+No hints or solution necessary here.
+</codeblock>
+
+We see that assay diet is highly significant. We could proceed now and exclude the non-significant interaction term between assay diet and cage diet, run the model again, and then maybe remove the cage diet term if it is non-significant, and run a final model. This is a model selection strategy where non-significant terms are sequentially removed (starting with the most complex terms), until only significant terms are left in the final model. We could also stop here and report the model as is. This is not the place to discuss which model strategy to use, so I refer you to other sources of whether and how to do model selection.
+
 </exercise>
 
-<exercise id="3" title="Bayesian with rstanarm::stan_glmer">
+<exercise id="3" title="Bayesian with rstanarm::stan_lmer">
 
 Bayesian Statistics: 
 
+Be aware that setting correct priors and setting up the correct model structure of more complicated Bayesian models can be very tricky. R packages such as MCMCglmm, and, more recently, brms and rstanarm, try to overcome this difficulty for simple models (i.e. reasonable default values are chosen automatically). Here is an example of a Bayesian GLMM in rstanarm. Caution: running this will take a couple of minutes!
 
+<codeblock id="9">
+No hints or solution necessary here.
+</codeblock>
 
 
 

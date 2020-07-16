@@ -1,33 +1,16 @@
 ###CODEBLOCK 7###
 
-#Load packages
-library(ggplot)
-
-data(Aids2)
-
-# View details about the 'Aids2' data
-?Aids2
-
-Aids2 %>% group_by(sex) %>% tally()
-
-Aids2 %>% group_by(sex, T.categ) %>% tally()
+#Load packages and data
+suppressMessages((library(dplyr))
+suppressMessages((library(lme4))
+data1 <- read.csv("Dryad_Zajitschek_etal_2016_ProcB_Data.csv")
+data1 <- data1 %>% mutate(across(where(is.integer), as.factor))
           
-# Plot
-theme_set(theme_classic())
-g <- ggplot(Aids2, aes(age))
-g + geom_density(aes(fill=factor(sex)), alpha=0.8) + 
-       facet_grid(state ~ 1) + 
-       labs(title="Density plot", 
-       subtitle="Lifespan grouped by sex and state",
-       caption="Source: 'Aids2' data set",
-       x="(Lifespan (age at death)",
-       fill="State")
+# Run a GeneralLMM in lme4
+lme4_glmm_model1 <- lmer(lifespan ~ cagediet*assaydiet + (1|vial) + (1|cage), data= data1)
 
-
-
-
-
-
+# Check results
+summary(lme4_glmm_model1)
                         
 
 

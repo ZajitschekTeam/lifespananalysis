@@ -1,8 +1,8 @@
 ###CODEBLOCK 3###
 
 #Load packages
-library(rcompanion)
-library(dplyr)
+suppressMessages(library(rcompanion))
+suppressMessages(library(dplyr))
 
 # Load previous lifespans
 lifespan_data <- c(1,3,4,4,4,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,6,6,7,7,7,7,7,7,7,7,7,7,7,7,8,8,8,9,9,13)
