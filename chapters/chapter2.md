@@ -56,9 +56,9 @@ Let's try this with another data set. R and its packages come with provided data
 
 <code>data()</code>
 
-We are interested in lifespan / survival data from an experimental study. Since I can't really find a good data set in the R data sets, we'll use data from my own previous research that is published and publicly available here: [Zajitschek et al. ProcB 2016 (paper)](https://doi.org/10.1098/rspb.2015.2726)  and  [Lifespan data on dryad.org](https://datadryad.org/stash/dataset/doi:10.5061/dryad.2fp25).
+We are interested in lifespan / survival data from an experimental study. Since I can't really find a good data set in the R data sets, we'll use data from my own previous research that I published here: [Zajitschek et al. ProcB 2016 (paper)](https://doi.org/10.1098/rspb.2015.2726).
 
-To use those data, I just copied the lifespan data tab from the Microsoft Excel file I downloaded from Dryad and saved it as a .csv file. We load the data set to do the calculations and plots we did previously on our self-created data. For now, let's ignore the fact lifespan data are from flies from difefrent teratment groups and let's average across all individuals' lifespan values.
+We load the data set to do the calculations and plots we did previously on our self-created data. For now, let's ignore the fact lifespan data are from flies from different treatment groups and let's average across all individuals' lifespan values.
 
 <codeblock id="4">
 The function doesn't seem to work for the "bca" calculations. Set bca to "FALSE" and try again.
@@ -71,6 +71,8 @@ The function doesn't seem to work for the "bca" calculations. Set bca to "FALSE"
 # Simulate lifespan data 
 
 Age-dependent survival - when and how many individuals of a cohort die - can be described by a variety of different distributions. Let's have a look at the Figure from [Colchero et al. (PNAS, 2016)](https://doi.org/10.1073/pnas.1612191113) again:
+
+
 
 ![](https://github.com/zajitschek/lifespananalysis/blob/master/images/ColcheroPNAS2016.png?raw=true) 
 We see smoothed lifespan distributions for females (red) and males (blue) for several primate species, with lifespan distributions of different human populations in the two bottom rows. Solid vertical lines show life expectancies, calculated as mean lifespans. Infant mortality (before age 1 y) is reported in *Inset* pie charts. Only in the data from modern Sweden (2000-2009) and Japan (2012), infant mortality is very low. High frequencies of death at early and and late ages can be modelled with specific distributions (e.g. bathtub curved distributions). Whether infant or young age mortality is pronounced depends very much on the studied species and on the circumstances in which lifespan was measured. For fruit flies, for example, young age adult mortality is not very important. Here, we will go through some steps to simulate data that are quite similar to the Swedish and Japanese lifespan data above.
