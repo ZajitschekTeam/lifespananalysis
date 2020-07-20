@@ -38,9 +38,17 @@ This can be caused by heterogeneity in the study cohort (variation in individual
 
 <exercise id="2" title="Fitting Gompertz family functions in R">
 
-We will first use the package xyz to fit all 4 mortality functions to our fly data.
+Unfortunately, at the time of writing (mid 2020), there is no R package available to my knowledge that allows a very straightforward fitting of the four hazard models I introduced earlier. We will see that your best option will be to set up models in R package **BaSTA** that uses Bayesian techniques to estimate hazard rates and fit models, but there are also some other options.
 
-Then I will show how to write your own functions and fit them in the package *bbmle*
+- [package BaSTA](https://imada.sdu.dk/~colchero/basta/): "Survival Bayesian Trajectory Analysis". Handles more complex capture/mark/recapture data, but can also be used for less complex results from lab experiments.
+- build your own models in R (we have a go at that below).
+- get your hands on the software WinModest, developed by [Scott Pletcher](https://sites.google.com/a/umich.edu/pletcher-lab/), and run in in compatibility mode on Windows (works for Windows 10). You will have to contact Scott and ask him directly, as there are no direct download options to my knowledge. WinModest has been used extensively in the experimental aging literature.
+- **not tested**: [package *flexsurv*](https://rdrr.io/cran/flexsurv/) fits Gompertz, Weibull and a few others out of the package, and can be set up for Gompertz-Makeham (using the eha package). Read how in the [vignette](https://cran.r-project.org/web/packages/flexsurv/vignettes/flexsurv.pdf).
+-  **not tested**: [package *fmsb*](http://minato.sip21c.org/msb/man/GompertzMakeham.html) fits Gompertz-Makeham, but you have to provide the mortality rate *qx*
+
+
+
+Before we move on to BaSTA, I will show how to write your own functions and fit them in the package *bbmle* (there are many ways you could potentially accomplish that in R).
 
 </exercise>
 
