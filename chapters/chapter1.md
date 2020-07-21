@@ -16,7 +16,7 @@ Hi and welcome, I am **[Felix Zajitschek](https://felix.zajitschek.net), an evol
 
 All the actual statistical analyses are performed in the [software R](https://www.r-project.org/about.html), and you will have the opportunity to run R software scripts right here, on this website, without the need to install software on your computer.
 
-![](https://github.com/zajitschek/lifespananalysis/blob/master/images/pushpin.svg?raw=true) Please note, if you plan on actually doing a meta-analysis yourself, beyond just going through this exercise, you will have to download R or [R studio](https://rstudio.com/products/rstudio/download/), if you haven't already. 
+![](https://github.com/zajitschek/lifespananalysis/blob/master/images/pushpin.svg?raw=true) Please note, if you plan on actually doing lifespan-analysis yourself, beyond just going through this exercise, you will have to download R or [R studio](https://rstudio.com/products/rstudio/download/), if you haven't already. 
 
 # How to use this resource
 

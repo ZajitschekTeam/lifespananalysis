@@ -1,5 +1,5 @@
 ---
-title: 'Chapter 3: Inferential statistics I: Tests of effects on mean lifespan'
+title: 'Chapter 3: Inferential statistics on mean lifespan'
 description:
   'Linear Models'
 prev: chapter2
@@ -16,7 +16,7 @@ id: 3
 
 ## What are GLMM?
 
-We won't go into too much detail in explaining GLMM here, as you have vast amounts of online resources and excellent textbooks for this available). 
+We won't go into too much detail in explaining GLMM here, as there are vast amounts of online resources and excellent textbooks that cover GLMM available. 
 
 Simple linear regression models describe the relationship between values of a response variable and explanatory variables, with a constant change in explanatory variable resulting in a constant change in the response variable (= linear relationship), implying a normally distributed response variable. Generalized linear models (GLM) allow for different error distributions than the normal distribution and for different link functions (that's what we might want for lifespan data). Generalized linear mixed models (GLMM) further allow for the inclusion of random effects, which can be used to model grouping structures in our data that are often not the main focus of the analyses.
 
@@ -54,32 +54,34 @@ No hints or solution necessary here.
 
 By loading package *lmerTest*, the anova() function spits out a classic ANOVA table (have a go and see what happens when you instead run the model with 'lme4::lmer(...)' and use the anova function, as in the script). This means we get p-values for every fixed effect (in our case, 'assaydiet'). It's the same for the 'summary()' command', only that we get p-values for the differences between the reference diet, shown under '(Intercept)' and set to 'assaydiet 1' automatically, since R ordered the levels of factor 'assaydiet' and treated the numbers, that are saved as characters, as numeric values for this purpose (if you want to reorder levels, search for function 'relevel'). If you would like to add the missing contrast between assaydiet 3 and assaydiet 4, you could use packages *multcomp* that implements corrections for multiple testing:
 
-```library(multcomp)```
-```summary(glht(lme4_glmm_model1, linfct = mcp(assaydiet = "Tukey")))```
+```R
+library(multcomp)
+summary(glht(lme4_glmm_model1, linfct = mcp(assaydiet = "Tukey")))
+```
 
 For diagnostic plots, you could use
 
-<code>plot(lme4_glmm_model1)
-
+```
+plot(lme4_glmm_model1)
 qqnorm(residuals(lme4_glmm_model1))
 
 library(DHARMa)
-
 sim_lme4_glmm_model1 <- simulateResiduals(fittedModel = lme4_glmm_model1)
-
 plot(sim_lme4_glmm_model1)
-</code>
+```
 
 We see that 'assaydiet' has a strong effect. Flies that were fed a restricted diet (assaydiet 4) lived on average longest, followed by flies on standard diet (assaydiet 1), and rich diet (assaydiet 3).
 
 There are a variety of methods of how to plot the model-predicted mean lifespans. You could use
-```library(effects)```
-```ef1 <- effect(lme4_glmm_model1)```
-```plot(ef1)```
+
+``` 
+library(effects)
+ef1 <- effect(lme4_glmm_model1)
+plot(ef1)
+```
 
 or you could run
-
-```print(confint(lme4_glmm_model1, method="boot"), digits=3)```
+`print(confint(lme4_glmm_model1, method="boot"), digits=3)`
 
 and extract the bootstrapped lower and upper 95% confidence limits (provided under '2.5 %' and '97.5 %'') to plot yourself (e.g. in with 'ggplot'), with the estimated means copied from the lmer summary output.
 
@@ -95,13 +97,15 @@ We see that assay diet is highly significant. We could proceed now and exclude t
 
 <exercise id="3" title="Bayesian with rstanarm::stan_lmer">
 
-**Bayesian Statistics**: Another branch of inferential statistics (we dealt with frequentist statistics so far) that has become accessible only in recent years, due to the computer-intensive sampling from probability distributions with MCMC (Markov chain Monte Carlo) methods. Bayesian statistics can also implement and update knowledge about events that happen in your system of interest. This potential prior knowledge is reflected in the choice of *priors* (= the prior probability distribution). [Bayes theorem](https://en.wikipedia.org/wiki/Bayes'_theorem) is then used to calculate the posterior probability distribution, which is the conditional distribution of the uncertain quantity (e.g. a parameter) given the data. 
+**Bayesian Statistics**: Another branch of inferential statistics (we dealt with frequentist statistics so far) that has become accessible only in recent years, due the development of ever more powerful computers that take less time to perform computer-intensive sampling from probability distributions with MCMC (Markov chain Monte Carlo) methods. Bayesian statistics can implement and update knowledge about events that happen in your system of interest. This potential prior knowledge is reflected in the choice of *priors* (= the prior probability distribution). [Bayes theorem](https://en.wikipedia.org/wiki/Bayes'_theorem) is then used to calculate the posterior probability distributions, which are the conditional distributions of the uncertain quantities (e.g. effect sizes or parameters) given the data. 
 
-Very often, uninformative priors are used (this is the case with 'out of the box solutions' such as the example in *rstanarm* below). The advantage of Bayesian statistics is that we get the whole posterior probability distribution of all parameters in a model, instead of point estimates of parameters in frequentist statistics. This means we can calculate credible intervals, instead of (frequentist) confidence intervals, with the very intuitive interpretation as a range of values to which a parameter is known to belong with an estimated probability. It also means that two non-overlapping credible intervals can be interpreted as the parameters being different from each other. In frequentist statistics,  we need to calculate p-values and decide on a more or less arbitrary cut-off level (often set at 0.05) whether an effect is significant (see [here for a discussion and strong criticism of the use of p-values in scientific research](https://doi.org/10.1080/00031305.2019.1583913)).
+Very often, uninformative priors are used (this is the case with 'out of the box solutions' such as the example in *rstanarm* below that works even when priors do not have to be defined in more detail by the user). The advantage of Bayesian statistics is that we get the whole posterior probability distribution of all parameters in a model, instead of point estimates of parameters in frequentist statistics. This means we can calculate credible intervals, instead of (frequentist) confidence intervals, with the very intuitive interpretation as a range of values to which a parameter is known to belong with an estimated probability. It also means that two non-overlapping credible intervals of the same parameter, estimated for different groups, can be interpreted as the parameters being different between groups. In frequentist statistics,  we need to calculate p-values and base our decision on whether effects are significant on a more or less arbitrary cut-off level (the *significance level*, often set at 0.05; see [here for a discussion and strong criticism of the use of p-values in scientific research](https://doi.org/10.1080/00031305.2019.1583913)).
 
 **In Bayesian statistics we can say for a 95% Credible Interval**: "The value of interest (e.g. size of treatment effect / parameter) lies with a 95% probability in the interval."
 
 **In frequentist statistics we can say for a 95% Confidence Interval**: "The **true** value of interest (e.g. size of treatment effect / parameter) will lie in the interval in 95% of the cases if the study would be repeated many times using samples from the same population."
+
+![](https://github.com/zajitschek/lifespananalysis/blob/master/images/pushpin.svg?raw=true) Note: Often, credible intervals and confidence intervals are both abbreviated by CI.
 
 Be aware that setting correct priors and setting up the correct model structure of more complicated Bayesian models can be very tricky. R packages such as *MCMCglmm*, and, more recently, *brms* and *rstanarm*, try to overcome this difficulty for simple models (i.e. reasonable default values are chosen automatically). Here is an example of a Bayesian GLMM in *rstanarm*. Caution: running this will take a couple of minutes!
 
@@ -112,3 +116,4 @@ No hints or solution necessary here.
 
 
 </exercise>
+
