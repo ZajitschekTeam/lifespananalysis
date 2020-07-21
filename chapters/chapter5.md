@@ -42,6 +42,7 @@ Unfortunately, at the time of writing (mid 2020), there is no R package availabl
 
 - [package BaSTA](https://imada.sdu.dk/~colchero/basta/): "Survival Bayesian Trajectory Analysis". Handles more complex capture/mark/recapture data, but can also be used for less complex results from lab experiments.
 - build your own models in R (we have a go at that below).
+- run an old version of R package Survomatic (v1.4.0) on R 2.12.1 for Windows. For this, you need to install the proper R version from CRAN, and to download and install its dependencies (packages that are needed for Survomatic to function) from a github repository I have created (explained below).
 - get your hands on the software WinModest, developed by [Scott Pletcher](https://sites.google.com/a/umich.edu/pletcher-lab/), and run in in compatibility mode on Windows (works for Windows 10). You will have to contact Scott and ask him directly, as there are no direct download options to my knowledge. WinModest has been used extensively in the experimental aging literature.
 - **not tested**: [package *flexsurv*](https://rdrr.io/cran/flexsurv/) fits Gompertz, Weibull and a few others out of the package, and can be set up for Gompertz-Makeham (using the eha package). Read how in the [vignette](https://cran.r-project.org/web/packages/flexsurv/vignettes/flexsurv.pdf).
 -  **not tested**: [package *fmsb*](http://minato.sip21c.org/msb/man/GompertzMakeham.html) fits Gompertz-Makeham, but you have to provide the mortality rate *qx*
@@ -49,6 +50,28 @@ Unfortunately, at the time of writing (mid 2020), there is no R package availabl
 
 
 Before we move on to BaSTA, I will show how to write your own functions and fit them in the package *bbmle* (there are many ways you could potentially accomplish that in R).
+
+
+
+If you want to install and use package Survomatic 1.4.0 (which was intended to serve as an R version of WinModest, but unfortunately discontinued; the current version 1.7.0 doesn't seem to work), follow these steps:
+
+1. This works only on Windows
+
+2. Go to: https://github.com/zajitschek/Survomatic1.4.0_for_R12.2.1
+
+3. When you have R 12.2.1 installed on your local Windows computer, you need to download the provided .zip file that contains all necessary dependencies (see README.md, automatically shown on the first page when you go to https://github.com/zajitschek/Survomatic1.4.0_for_R12.2.1)
+
+4. Get started with the following code (more in the provided manual, contained in the .zip file):
+
+   ```R
+   data <- read.csv(file.choose()) #load cohort data, with variable 'lifespan'
+   model.fit <- findpars(data$lifespan,,summary = T)
+   model.fit[5,4] #extract estimated parameter: here: logistic a
+   model.fit[5,5] #extract estimated parameter: here: logistic b
+   model.fit[5,7] #extract estimated parameter: here: logistic s
+   ```
+
+   
 
 </exercise>
 
