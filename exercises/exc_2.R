@@ -3,17 +3,17 @@
 # Create lifespan data (40 values; n = 40)
 lifespan_data <- c(1,3,4,4,4,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,6,6,7,7,7,7,7,7,7,7,7,7,7,7,8,8,8,9,9,13)
 
-# How many lifespans?
-length(lifespan_data)
+# How many lifespan values?
+print(paste0("How many lifespan values? ", length(lifespan_data)))
 
 # Calculate mean lifespan (as the arithmetic mean)
-mean(lifespan_data)
+print(paste0("Arithemtic mean lifespan: ", mean(lifespan_data)))
 
 # Calculate median lifespan
-median(lifespan_data)
+print(paste0("Median lifespan: ", median(lifespan_data)))
 
 # Maximum lifespan
-max(lifespan_data)
+print(paste0("Maximum lifespan: ", max(lifespan_data)))
 
 # Plot
 hist(lifespan_data, breaks = 15, main = "Our made-up lifespan data")
