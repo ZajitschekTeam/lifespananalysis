@@ -22,5 +22,5 @@ hist(-lifespan_rchisq, breaks = 25, main = "Chi-square")
 # Remember: we flipped the values first, mirroring on the axis x=0
 hist(-lifespan_rchisq + max(lifespan_rchisq), breaks = 25, main = "Chi-square")
 
-# If we want integers (whole numbers), we can round our values
-hist(round(-lifespan_rchisq + max(lifespan_rchisq), breaks = 25, main = "Chi-square")
+# If we want integers (whole numbers), we can round our values (very similar graph)
+hist(round(-lifespan_rchisq + max(lifespan_rchisq)), breaks = 25, main = "Chi-square")
