@@ -69,11 +69,11 @@ In ecology and evolution studies, we regularly want to test the effects of more 
 
 </exercise>
 
-<exercise id="3" title="Touching the Bayesian for completeness">
+<exercise id="3" title="Survival as a Bayesian">
 
 # stan_surv
 
-
+We will try out survival model sin the package *rstanarm* here. You will see that they are more flexible than frequentist survival models we have seen in the last section (e.g. Cox PH models in packages *survival* or *coxme*).
 
 <codeblock id="13">
 </codeblock>

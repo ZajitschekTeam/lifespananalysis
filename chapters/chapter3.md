@@ -18,7 +18,7 @@ id: 3
 
 We won't go into too much detail in explaining GLMM here, as there are vast amounts of online resources and excellent textbooks that cover GLMM available. 
 
-Simple linear regression models describe the relationship between values of a response variable and explanatory variables, with a constant change in explanatory variable resulting in a constant change in the response variable (= linear relationship), implying a normally distributed response variable. Generalized linear models (GLM) allow for different error distributions than the normal distribution and for different link functions (that's what we might want for lifespan data). Generalized linear mixed models (GLMM) further allow for the inclusion of random effects, which can be used to model grouping structures in our data that are often not the main focus of the analyses.
+Simple linear regression models (LM) describe the relationship between values of a response variable and explanatory variables, with a constant change in explanatory variable resulting in a constant change in the response variable (= linear relationship), implying a normally distributed response variable. Generalized linear models (GLM) allow for different error distributions than the normal distribution and for different link functions (that's what we might want for lifespan data). Generalized linear mixed models (GLMM) further allow for the inclusion of random effects, which can be used to model grouping structures in our data that are often not the main focus of the analyses.
 
 Here, we will focus on GLMM since they have become standard in recent years. 
 
@@ -107,7 +107,7 @@ Very often, uninformative priors are used (this is the case with 'out of the box
 
 ![](https://github.com/zajitschek/lifespananalysis/blob/master/images/pushpin.svg?raw=true) Note: Often, credible intervals and confidence intervals are both abbreviated by CI.
 
-Be aware that setting correct priors and setting up the correct model structure of more complicated Bayesian models can be very tricky. R packages such as *MCMCglmm*, and, more recently, *brms* and *rstanarm*, try to overcome this difficulty for simple models (i.e. reasonable default values are chosen automatically). Here is an example of a Bayesian GLMM in *rstanarm*. Caution: running this will take a couple of minutes!
+Be aware that setting correct priors and setting up the correct model structure of more complicated Bayesian models can be very tricky. R packages such as *MCMCglmm*, and, more recently, *brms* and *rstanarm*, try to overcome this difficulty for simple models (i.e. reasonable default values, including priors, are chosen automatically). Here is an example of a Bayesian GLMM in *rstanarm*. Caution: running this will take a couple of minutes!
 
 <codeblock id="9">
 No hints or solution necessary here.
