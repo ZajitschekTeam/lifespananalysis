@@ -73,7 +73,9 @@ In ecology and evolution studies, we regularly want to test the effects of more 
 
 # stan_surv
 
-We will try out survival model sin the package *rstanarm* here. You will see that they are more flexible than frequentist survival models we have seen in the last section (e.g. Cox PH models in packages *survival* or *coxme*).
+We will try out survival models in the package *rstanarm* here. You will see that they are more flexible than frequentist survival models we have seen in the last section (e.g. Cox PH models in packages *survival* or *coxme*).
+
+If you want to do this exercise, you will have to open RStudio in your webbrowser (by clicking  [![Binder](https://mybinder.org/badge_logo.svg)]( https://mybinder.org/v2/gh/zajitschek/RStudioLifespanBayesian/master?urlpath=rstudio )). This image of RStudio will have package *rstanarm* installed, and the fly lifespan data we used before will be available to load.
 
 <codeblock id="13">
 </codeblock>
