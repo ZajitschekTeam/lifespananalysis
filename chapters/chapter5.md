@@ -51,6 +51,12 @@ Unfortunately, at the time of writing (mid 2020), there is no R package availabl
 
 Before we move on to BaSTA, I will show how to write your own functions and fit them in the package *bbmle* (there are many ways you could potentially accomplish that in R).
 
+I will explain two methods:
+
+1) 
+
+2) Binomial setup
+
 
 
 If you want to install and use package Survomatic 1.4.0 (which was intended to serve as an R version of WinModest, but unfortunately discontinued; the current version 1.7.0 doesn't seem to work), follow these steps:
@@ -75,9 +81,13 @@ If you want to install and use package Survomatic 1.4.0 (which was intended to s
 
 </exercise>
 
+<exercise id="2" title="BaSTA">
+
+
+
 </exercise>
 
-<exercise id="2" title="A short go at modelling interaction effects on Gompertz parameters">
+<exercise id="3" title="A short go at modelling interaction effects on Gompertz parameters">
 
 
 
