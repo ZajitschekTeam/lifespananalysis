@@ -107,11 +107,21 @@ Very often, uninformative priors are used (this is the case with 'out of the box
 
 ![](https://github.com/zajitschek/lifespananalysis/blob/master/images/pushpin.svg?raw=true) Note: Often, credible intervals and confidence intervals are both abbreviated by CI.
 
-Be aware that setting correct priors and setting up the correct model structure of more complicated Bayesian models can be very tricky. R packages such as *MCMCglmm*, and, more recently, *brms* and *rstanarm*, try to overcome this difficulty for simple models (i.e. reasonable default values, including priors, are chosen automatically). Here is an example of a Bayesian GLMM in *rstanarm*. Caution: running this will take a couple of minutes!
+Be aware that setting correct priors and setting up the correct model structure of more complicated Bayesian models can be very tricky. R packages such as *MCMCglmm*, and, more recently, *brms* and *rstanarm*, try to overcome this difficulty for simple models (i.e. reasonable default values, including priors, are chosen automatically). Here is an example of a Bayesian GLMM in *rstanarm* in an external image of RStudio (see below) that opens in your webbrowser. Why don't we run it here, in our convenient internal R images? Because the first time you open one of the R images in this course, all the packages that I specified have to be loaded. Loading package *rstanarm* would make this take even longer. 
 
-<codeblock id="9">
-No hints or solution necessary here.
-</codeblock>
+**Caution:** running Bayesian models with any meaningful number of samples (such as given in the default settings) will take a couple of minutes!
+
+# rstanarm::stan_lmer
+
+We will run some survival models in the package *rstanarm*. You will see that they are more flexible than frequentist survival models that we have seen in the last section (e.g. Cox PH models in packages *survival* or *coxme*).
+
+You will have to open RStudio in your webbrowser (by clicking  [![Binder](https://mybinder.org/badge_logo.svg)]( https://mybinder.org/v2/gh/zajitschek/RStudioLifespanBayesian/master?urlpath=rstudio )).
+
+This image of RStudio will have package *rstanarm* installed, and the fly lifespan data we used before will be available to load.
+
+You will have to load the provided script named 'rstanarm_lmer.Rmd'.
+
+In RStudio, go to *File -> Open File*, then choose the file 'rstanarm_lmer.Rmd', located in the folder 'R', click open, and follow the steps outlined in the R script that opens up ('rstanarm_lmer.Rmd').
 
 
 

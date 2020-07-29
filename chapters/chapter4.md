@@ -69,16 +69,19 @@ In ecology and evolution studies, we regularly want to test the effects of more 
 
 </exercise>
 
-<exercise id="3" title="Survival as a Bayesian">
+<exercise id="3" title="Survival analysis as a Bayesian">
 
-# stan_surv
+# rstanarm::stan_surv
 
-We will try out survival models in the package *rstanarm* here. You will see that they are more flexible than frequentist survival models we have seen in the last section (e.g. Cox PH models in packages *survival* or *coxme*).
+We will run some survival models in the package *rstanarm*. You will see that they are more flexible than frequentist survival models that we have seen in the last section (e.g. Cox PH models in packages *survival* or *coxme*).
 
-If you want to do this exercise, you will have to open RStudio in your webbrowser (by clicking  [![Binder](https://mybinder.org/badge_logo.svg)]( https://mybinder.org/v2/gh/zajitschek/RStudioLifespanBayesian/master?urlpath=rstudio )). This image of RStudio will have package *rstanarm* installed, and the fly lifespan data we used before will be available to load.
+If you want to do this exercise, you will have to open RStudio in your webbrowser (by clicking  [![Binder](https://mybinder.org/badge_logo.svg)]( https://mybinder.org/v2/gh/zajitschek/RStudioLifespanBayesian/master?urlpath=rstudio )). It's the same RStudio image / environment that we used in the previous chapter for *rstanarm*. If you have it still open, there is no need to reopen it again. 
 
-<codeblock id="13">
-</codeblock>
+This image of RStudio will have package *rstanarm* installed, and the fly lifespan data we used before will be available to load.
+
+You will have to load the provided script named 'rstanarm_surv.Rmd'.
+
+In RStudio, go to *File -> Open File*, then choose the file 'rstanarm_surv.Rmd', located in the folder 'R', click open, and follow the steps outlined in the R script that opens up ('rstanarm_surv.Rmd').
 
 
 
