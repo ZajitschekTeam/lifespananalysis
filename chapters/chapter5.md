@@ -16,13 +16,17 @@ A exponential increase in hazard rate is used as a definition of ageing, and haz
 
 We will have a more detailed look at parametric hazard models of the Gompertz family: the Gompertz, the Gompertz-Makeham, the Logistic, and the Logistic-Makeham models. They are nested functions, i,e. the most complex one, the Logistic-Makeham, can be reduced to the simplest one, the Gompertz, by setting parameters to zero. (Another often used function to model aging is the Weibull function that is not part of the Gompertz function family and won't be discussed further here).
 
-[pic of 4 functions]
-
 These models are not based on any biological mechanism. The Gompertz function is named after the actuary Benjamin Gompertz who modelled age-specific human mortality rate to make better decisions about rates of regular payments and deposits, such as insurance or mortgage payments. He found that over most of the human lifespan, the age-specific mortality rate increases exponentially (Gompertz, 1825). Since his Gompertz function only has two parameters, one of them defining the rate of increase at higher values (= in late life), it has been used to directly test for (demographic or actuarial) aging in many studies.
 
 The Gompertz function:
 
 
+
+How the Gompertz function looks like:
+
+Gompertz.png
+
+You see that in **panel A.**, the baseline parameter *a* is kept constant at a = 0.01. In **B.**, the ageing parameter *b* is kept constant at b = 0.02. Often, you'll see Gompertz curves plotted in their logarithmic form (the logarithm linearizes the exponential curves), as in **panels C and D**.
 
 The Makeham parameters are just added constants, elevating the hazard rate across all ages for the same value (for both Gompertz and logistic).
 
@@ -53,7 +57,7 @@ Before we move on to BaSTA, I will show how to write your own functions and fit 
 
 I will explain two methods:
 
-1) 
+1) Probability density function setup
 
 2) Binomial setup
 
