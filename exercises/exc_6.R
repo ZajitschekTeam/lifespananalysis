@@ -5,7 +5,7 @@ suppressMessages(library(ggplot2))
 suppressMessages((library(dplyr))
 
 # Load fly lifespan data, extracted from the data set for Zajitschek et al 2016 Proc B
-data1 <- read.csv("expevol_male_flies.csv")
+data1 <- read.csv(".binder/data/expevol_male_flies.csv")
 
 # Always change numeric values (both data types 'int' and 'num') that don't hold any 
 # meaningful numeric information into factors

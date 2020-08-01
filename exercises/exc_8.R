@@ -4,7 +4,7 @@
 suppressMessages((library(dplyr))
 suppressMessages((library(lme4))
 suppressMessages((library(lmerTest))
-data1 <- read.csv("expevol_male_flies.csv")
+data1 <- read.csv(".binder/data/expevol_male_flies.csv")
 data1 <- data1 %>% mutate(across(where(is.integer), as.factor))
           
 # Alaysis of all data, including cagediet and its interaction term with assaydiet
