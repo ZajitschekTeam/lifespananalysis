@@ -18,8 +18,8 @@ group1_34 <- subset(data1, cagediet== 1 & (assaydiet== 3 | assaydiet== 4))
 
 surv1 <- survfit(Surv(lifespan, status)~ 1, data= group1_4)
 
-# Plot the two survival curves
-plot(surv1)
+# Print survival rates for each group
+summary(surv1)
 
                         
 
