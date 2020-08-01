@@ -57,7 +57,7 @@ plot(lifetable.surv1$Age, lifetable.surv1$mux)
 # kable(lifetable.surv1, format= "markdown", align= "c")
 ```
 
-![](https://github.com/zajitschek/lifespananalysis/blob/master/images/pushpin.svg?raw=true) Take a careful look at the duration of age intervals for which live table rates are provided. Often they are conveniently set to 1 (for example 1 day for shorter-lived species, or 1 year for longer-lived species), if the there are enough data. You'll also notice that in the code above, rates for age ranges without any deaths might not be listed, depending on whether they were included  in the original survival data. If no deaths occur in a given age-interval, that's data, too! This will often become more of an issue at older ages. Also, keep in mind that calculation of rates often does not take into account whether the underlying number of  deaths is very small (e.g. under 5) or large enough: in other words, it gives all calculated values equal weight, which might not be very desirable when analysing the data further, or when comparing mortality rates between populations.
+![](https://github.com/zajitschek/lifespananalysis/blob/master/images/pushpin.svg?raw=true) Take a careful look at the duration of age intervals for which live table rates might be provided. There might be recorded deaths for every time unit (for example 1 day for shorter-lived species, or 1 year for longer-lived species). You'll notice that in the code above, rates for age ranges without any deaths are not listed, as they were not explicitly included in the original survival data. However: If no deaths occur in a given age-interval, that's data, too! This will often become more of an issue at older ages. Also, keep in mind that calculation of rates often does not take into account whether the underlying number of  deaths is very small (e.g. under 5) or large enough: in other words, it gives all calculated values equal weight, which might not be very desirable when analysing the data further, or when comparing mortality rates between populations.
 
 
 
@@ -113,14 +113,14 @@ Easy. The p-value from the logrank-test is very small, as expected from the dive
 
 # Cox proportional hazard (Cox PH) models
 
-In ecology and evolution studies, we regularly want to test the effects of more variables on survival in more than two experimental groups. Cox PH models allow us to test complex multivariate effects. These models are implemented in the package *survival* as well. There is also a mixed model package *coxme* and Bayesian models, for example in *rstanarm*.
+In ecology and evolution studies, we regularly want to test the effects of more variables on survival in more than two experimental groups. Cox PH models (also called *Cox regression* models) allow us to test complex multivariate effects. These models are implemented in the package *survival* as well. There is also a mixed model package *coxme* and Bayesian models, for example in *rstanarm* (see next section).
 
-<codeblock id="11">
+<codeblock id="12">
 </codeblock>
 
 
 
-<codeblock id="12">
+<codeblock id="13">
 </codeblock>
 
 
