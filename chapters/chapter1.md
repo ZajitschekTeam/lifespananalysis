@@ -1,5 +1,5 @@
 ---
-title: 'Chapter 1: Getting started: Introduction to Lifespan-Analysis'
+title: 'Chapter 1: Getting started: Introduction to lifespan-analysis'
 description:
   'In this chapter, we will go over some background, definitions for lifespan-analysis'
 prev: null
@@ -14,9 +14,9 @@ id: 1
 
 Hi and welcome, I am **[Felix Zajitschek](https://felix.zajitschek.net), an evolutionary biologist, working on topics such as aging and life-history that require to analyse or incorporate lifespan**. This course was co-developed with **[Susi Zajitschek (LJMU)](https://www.ljmu.ac.uk/about-us/staff-profiles/faculty-of-science/school-of-biological-and-environmental-sciences/susanne-zajitschek)** and is meant mainly as a primer for students who would like to know more about various methods which can be used to analyse lifespan. It will give you an overview of what can be done, how to perform a number of specific analyses, and where to go when you need to analyse more complex data.
 
-All the actual statistical analyses are performed in the [software R](https://www.r-project.org/about.html), and you will have the opportunity to run R software scripts right here, on this website, without the need to install software on your computer.
+All the actual statistical analyses are performed in the [software R](https://www.r-project.org/about.html), and you will have the opportunity to run R software scripts right here, on this website, or in your browser, without the need to install software on your computer.
 
-![](https://github.com/zajitschek/lifespananalysis/blob/master/images/pushpin.svg?raw=true) Please note, if you plan on actually doing lifespan-analysis yourself, beyond just going through this exercise, you will have to download R or [R studio](https://rstudio.com/products/rstudio/download/), if you haven't already. 
+![](https://github.com/zajitschek/lifespananalysis/blob/master/images/pushpin.svg?raw=true) Please note, if you plan on actually doing lifespan-analysis yourself, beyond just going through this exercise, you will have to download R or [RStudio](https://rstudio.com/products/rstudio/download/), if you haven't already. 
 
 # How to use this resource
 
@@ -31,14 +31,16 @@ Write your name where the dotted line is!
 
 You can also use the "Show hints", "Show solution" and "Reset" tabs. Don't worry about doing in anything "wrong" - you will not be breaking these code blocks! You can also use these blocks to calculate whatever else you think of - try for example writing "1+1", and run it again! (For advanced R users - you can't import your own datasets, but of course could add them manually!)
 
-The R code will be a combination of base R and tidyverse (dplyr) R style. The latter can be identified by the *pipe* operator (%>%), part of the *magrittr* package that is automatically loaded as a dependency when loading *dplyr* (which, again, is part of the *tidyverse*). You can run all the code as is, without having used R at all before, but if you are starting your career in science I strongly advise you to get on board using and learning *tidyverse* syntax. Here is a good short introduction: https://dplyr.tidyverse.org/articles/dplyr.html. I also predict that once you used RStudio and markdown on your own computer, you'll probably ditch base R (I wished I had made the switch earlier). For base R, this is the official [intro](https://cran.r-project.org/doc/manuals/r-release/R-intro.html), but these ones are more digestible [(1)](https://rstudio.com/wp-content/uploads/2016/10/r-cheat-sheet-3.pdf), [(2)](https://rpubs.com/rslbliss/r_intro_ws).
+Some of the exercises that will take more time to run can be performed in an *image* of RStudio that opens up in your webbrowser after clicking the specified link in the Chapters. These RStudio images have certain packages and data installed that can be loaded. This is all explained in more detail at the relevant steps in the course.
+
+The R code will be a combination of base R and tidyverse (dplyr) R style. The latter can be identified by the *pipe* operator (%>%), part of the *magrittr* package that is automatically loaded as a dependency when loading *dplyr* (which, again, is part of the *tidyverse*). You can run all the code as is, without having used R at all before, but if you are starting your career in science I strongly advise you to get on board using and learning *tidyverse* syntax. Here is a good short introduction: https://dplyr.tidyverse.org/articles/dplyr.html. I also predict that once you used RStudio and markdown (=a simpler version of html) on your own computer, you'll probably ditch base R (I wished I had made the switch earlier). For base R, this is the official [intro](https://cran.r-project.org/doc/manuals/r-release/R-intro.html), but these ones are more digestible [(1)](https://rstudio.com/wp-content/uploads/2016/10/r-cheat-sheet-3.pdf), [(2)](https://rpubs.com/rslbliss/r_intro_ws).
 
 Each section may contain links, such as this [link to google scholar](https://scholar.google.com/), questions to answer (including feedback on getting it right or wrong), and tasks to do on your own - as indicated by this laptop icon  ![](https://github.com/zajitschek/lifespananalysis/blob/master/images/computertaskicon.svg?raw=true). If I think a note or resource is particularly useful, you will see this pushpin  ![](https://github.com/zajitschek/lifespananalysis/blob/master/images/pushpin.svg?raw=true).
 <br>
 
 Please note, this is meant as a quick primer to give you some overview of how lifespan can be analysed. If you're working on analyses for a publication, we highly recommend to check out some of the additional resources that are out there. Our resource here is only a starting point, and also does not cover the full range of R packages that are available for lifespan- and survival analyses.
 
-For a small collection of freely available resources (that may be using other R packages) please see Chapter 5.
+For a small collection of freely available resources (that may be using other R packages) please see Chapter 6.
 
 </exercise>
 

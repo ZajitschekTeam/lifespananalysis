@@ -30,7 +30,36 @@ Setting e.g. <u>n(alive at start of interval) = 50</u> and <u>n(escaped) = 30</u
 
 With censoring, individuals whose deaths are censored stay in the analysis until the time interval in which the censored deaths occurs, letting us to use all available data and providing S(complete).
 
-Collections of age-dependent variables such as survival rate, mortality rate, hazard rate etc. can be presented as **life tables** which can be calculated in various R packages, for example in [package *demography*](https://rpubs.com/Timexpo/487053). 
+Collections of age-dependent variables such as survival rate, mortality rate, hazard rate etc. can be presented as **life tables** which can be calculated in various R packages. It gets a little confusing though, as most packages for this job have different requirements. I recommend package BaSTA, using function [*MakeLifeTable*](https://rdrr.io/cran/BaSTA/man/MakeLifeTable.html), with e.g. ```MakeLifeTable(data$lifespan, ax = 0.5, n = 1)```. You can also do your own custom version in R, building on the survival values (*lx*) in package *survival*, for example like this:
+
+```group1_4$status <- 1
+library(survival)
+library(dplyr)
+
+# You need a censoring/status variable/column. 
+# If you have no censoring/status column yet, and all deaths were observed (=1):
+data1$status <- 1
+
+surv1 <- survfit(Surv(lifespan, status)~ 1, data= data1)
+surv1.summary <- summary(surv1)
+
+# Extract values from the survfit summary and
+# calculate new values. Function 'lead()' from dplyr is very neat, as it takes the value # of the next row of 'Alive', instead of the same row value.
+
+lifetable.surv1 <- as.data.frame(surv1.summary[c(2:6)]) %>%
+  select(Age = time, Alive = n.risk, lx = surv) %>% 
+  mutate(qx = (Alive - lead(Alive)) / Alive, mux = -log(1-qx))
+  
+plot(lifetable.surv1$Age, lifetable.surv1$mux)
+
+# For nicer tables in markdown, you can use package 'kableExtra'
+# library(kableExtra)
+# kable(lifetable.surv1, format= "markdown", align= "c")
+```
+
+![](https://github.com/zajitschek/lifespananalysis/blob/master/images/pushpin.svg?raw=true) Take a careful look at the duration of age intervals for which live table rates are provided. Often they are conveniently set to 1 (for example 1 day for shorter-lived species, or 1 year for longer-lived species), if the there are enough data. You'll also notice that in the code above, rates for age ranges without any deaths might not be listed, depending on whether they were included  in the original survival data. If no deaths occur in a given age-interval, that's data, too! This will often become more of an issue at older ages. Also, keep in mind that calculation of rates often does not take into account whether the underlying number of  deaths is very small (e.g. under 5) or large enough: in other words, it gives all calculated values equal weight, which might not be very desirable when analysing the data further, or when comparing mortality rates between populations.
+
+
 
 We will now have  a look at **Kaplan-Meier survival curve plots, logrank tests and Cox Proportional hazards** - probably the types of models that you'll have come across already if you have read some papers on biological research that analyses lifespan.
 
@@ -42,10 +71,39 @@ We will now have  a look at **Kaplan-Meier survival curve plots, logrank tests a
 
 # Simple and robust: KM plots and log-rank tests
 
-The typical survival plots are also called Kaplan-Meier curves. They display cumulative survival probabilities. Log-rank tests can be used to test whether two survival curves differ. This is the simplest test, with the draw back that it can only handle two curves, but with the advantage (like the KM plots) that there are no assumptions on underlying distributions (i.e. KM and log-rank tests are *non-parametric*) and that censored deaths can be included in the analysis. 
+The typical survival plots are also called Kaplan-Meier curves. They display cumulative survival probabilities, and look like steps down from left to right, or are smoothed curves of the step-version. 
+
+Log-rank tests can be used to test whether two survival curves differ. This is the simplest test, with the draw back that it can only handle two curves, but with the advantage (like the KM plots) that there are no assumptions on underlying distributions (i.e. KM and log-rank tests are *non-parametric*) and that censored deaths can be included in the analysis. 
+
+Plot two survival curves and try to tell which group they belong to (use the code hint).
+
+<codeblock id="9">
+
+Have a look in the code above to calculate life tables, especially the function after creating the *survfit* object.
+
+</codeblock>
+
+Nice, but a little underwhelming. Fortunately, there are some packages that can help to produce nicer plots containing more information. Let's see how to do this with package *survminer*.
 
 <codeblock id="10">
+
+No hint.
+
 </codeblock>
+
+We added a legend, 95% confidence limits, and made the lines thicker and changed the x-axis label.
+
+Next, we would like to test whether these two survival curves are different. 
+
+<codeblock id="11">
+
+No hint.
+
+</codeblock>
+
+Easy. The p-value from the logrank-test is very small, as expected from the diverging curves and the non-overlapping confidence limits. 
+
+**Sometimes this is all it takes.** If you have more complex study designs, with more treatments and more explanatory variables (as we have, for example, in our sample lifespan data: not only 1 cage diet and 2 assay diets, but 3 levels for each treatment), we will have to use other models, such as the **Cox proportional hazard model.**
 
 </exercise>
 
@@ -69,14 +127,19 @@ In ecology and evolution studies, we regularly want to test the effects of more 
 
 </exercise>
 
-<exercise id="3" title="Touching the Bayesian for completeness">
+<exercise id="3" title="Survival analysis as a Bayesian">
 
-# stan_surv
+# rstanarm::stan_surv
 
+We will run some survival models in the package *rstanarm*. You will see that they are more flexible than frequentist survival models that we have seen in the last section (e.g. Cox PH models in packages *survival* or *coxme*).
 
+If you want to do this exercise, you will have to open RStudio in your webbrowser (by clicking  [![Binder](https://mybinder.org/badge_logo.svg)]( https://mybinder.org/v2/gh/zajitschek/RStudioLifespanBayesian/master?urlpath=rstudio )). It's the same RStudio image / environment that we used in the previous chapter for *rstanarm*. If you have it still open, there is no need to reopen it again. 
 
-<codeblock id="13">
-</codeblock>
+This image of RStudio will have package *rstanarm* installed, and the fly lifespan data we used before will be available to load.
+
+You will have to load the provided script named 'rstanarm_surv.Rmd'.
+
+In RStudio, go to *File -> Open File*, then choose the file 'rstanarm_surv.Rmd', located in the folder 'R', click open, and follow the steps outlined in the R script that opens up ('rstanarm_surv.Rmd').
 
 
 

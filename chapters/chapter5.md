@@ -12,27 +12,49 @@ id: 5
 
 Hazard rate, mortality hazard, instantaneous rate of mortality all describe the same: the risk of dying in a certain time interval, independent of mortality rate in the previous time interval. 
 
+![](https://github.com/zajitschekteam/lifespananalysis/blob/master/images/hazard_func.png?raw=true) 
+
+with *px* the probability of an individual that is alive at age *x* surviving to age *x* + 1.
+
 A exponential increase in hazard rate is used as a definition of ageing, and hazard rate models have therefore been used widely in this field. 
 
 We will have a more detailed look at parametric hazard models of the Gompertz family: the Gompertz, the Gompertz-Makeham, the Logistic, and the Logistic-Makeham models. They are nested functions, i,e. the most complex one, the Logistic-Makeham, can be reduced to the simplest one, the Gompertz, by setting parameters to zero. (Another often used function to model aging is the Weibull function that is not part of the Gompertz function family and won't be discussed further here).
 
-[pic of 4 functions]
+These models are not based on any biological mechanism. The Gompertz function is named after the actuary Benjamin Gompertz who modelled age-specific human mortality rate to make better decisions about rates of regular payments and deposits, such as insurance or mortgage payments. He found that over most of the human lifespan, the age-specific mortality rate increases exponentially (Gompertz, 1825). The Gompertz function has two parameters: *a*, the baseline parameter, and *b*, the rate of increase at higher values (= in late life), with *a* > 0 and *b* > 0. **Parameter** ***b***, often called the ***aging parameter*** or the ***aging rate***, has been used to directly test for (demographic or actuarial) aging in many studies.
 
-These models are not based on any biological mechanism. The Gompertz function is named after the actuary Benjamin Gompertz who modelled age-specific human mortality rate to make better decisions about rates of regular payments and deposits, such as insurance or mortgage payments. He found that over most of the human lifespan, the age-specific mortality rate increases exponentially (Gompertz, 1825). Since his Gompertz function only has two parameters, one of them defining the rate of increase at higher values (= in late life), it has been used to directly test for (demographic or actuarial) aging in many studies.
+The Gompertz hazard function:
 
-The Gompertz function:
+![](https://github.com/zajitschekteam/lifespananalysis/blob/master/images/Gomp_func.png?raw=true) 
 
+How the Gompertz function looks like, plotted from age=0 to age=100:
 
+![](https://github.com/zajitschekteam/lifespananalysis/blob/master/images/Gompertz.png?raw=true) 
+
+You see that in **panel A.**, the baseline parameter *a* is kept constant at a = 0.01. In **B.**, the ageing parameter *b* is kept constant at b = 0.02. Often, you'll see Gompertz curves plotted in their logarithmic form (the logarithm linearizes the exponential curves), as in **panels C and D**.
 
 The Makeham parameters are just added constants, elevating the hazard rate across all ages for the same value (for both Gompertz and logistic).
+
+![](https://github.com/zajitschekteam/lifespananalysis/blob/master/images/Gomp_Make_func.png?raw=true) 
+
+![](https://github.com/zajitschekteam/lifespananalysis/blob/master/images/Gomp_Make.png?raw=true) 
 
 A couple of decades ago, research started to find support for mortality rate to decrease again at very old ages (Vaupel). 
 
 The logistic function was used to model this early exponential increase, followed by a levelling off at older ages:
 
+![](https://github.com/zajitschekteam/lifespananalysis/blob/master/images/Logistic_func.png?raw=true) 
 
+![](https://github.com/zajitschekteam/lifespananalysis/blob/master/images/Logistic.png?raw=true) 
 
 This can be caused by heterogeneity in the study cohort (variation in individual frailty) or by a decrease in hazard for all individuals who reach a certain old age. Since the heterogeneity explanation gained more and more support, parametric mortality modelling of this kind we'll go through here has lost a lot of its appeal  for a number of researchers, but is still useful, in my opinion.
+
+Last, this is how the Makeham extension of the Logistic function looks like:
+
+![](https://github.com/zajitschekteam/lifespananalysis/blob/master/images/Logistic_Make_func.png?raw=true) 
+
+![](https://github.com/zajitschekteam/lifespananalysis/blob/master/images/Logistic_Make.png?raw=true) 
+
+
 
 </exercise>
 
@@ -50,6 +72,12 @@ Unfortunately, at the time of writing (mid 2020), there is no R package availabl
 
 
 Before we move on to BaSTA, I will show how to write your own functions and fit them in the package *bbmle* (there are many ways you could potentially accomplish that in R).
+
+I will explain two methods:
+
+1) Probability density function setup
+
+2) Binomial setup
 
 
 
@@ -75,9 +103,13 @@ If you want to install and use package Survomatic 1.4.0 (which was intended to s
 
 </exercise>
 
+<exercise id="2" title="BaSTA">
+
+
+
 </exercise>
 
-<exercise id="2" title="A short go at modelling interaction effects on Gompertz parameters">
+<exercise id="3" title="A short go at modelling interaction effects on Gompertz parameters">
 
 
 
