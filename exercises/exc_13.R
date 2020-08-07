@@ -18,21 +18,7 @@ surv_cph1 <- coxph(Surv(lifespan, status)~ assaydiet, data= group1)
 
 summary(surv_cph1)
 
-# Test of proportional hazards assumption
-
-cox.zph(surv_cph1) 
-
-# Diagnostics
-
-ggcoxzph(surv_cph1)  # based on plot.cox.ph
-ggcoxdiagnostics(surv_cph1)  # goodness of fit plots
-
-ggforest(surv_cph1)  # forest plot for Cox PH model
-
-ggcoxadjustedcurves(surv_cph1)  # adjusted survival curves for Cox PH model
-
-
-# Plot survival curves
+# Plot
 surv1 <- survfit(Surv(lifespan, status)~ assaydiet, data= group1)
 ggsurvplot(surv1, size= 1.5, conf.int= TRUE,  legend.labs= c("Standard diet", "Rich diet", "Restricted diet"), 
 	xlab = "Adult age (days)", pval = TRUE)

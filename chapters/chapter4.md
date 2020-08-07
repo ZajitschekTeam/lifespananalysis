@@ -120,6 +120,8 @@ In ecology and evolution studies, we regularly want to test the effects of more 
 
 
 
+Mixed Cox PH models with function *coxph* and in package *coxme*.
+
 <codeblock id="13">
 </codeblock>
 
