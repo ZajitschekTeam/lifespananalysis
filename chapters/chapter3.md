@@ -81,7 +81,7 @@ plot(ef1)
 ```
 
 or you could run
-`print(confint(lme4_glmm_model1, method="boot"), digits=3)`
+```print(confint(lme4_glmm_model1, method="boot"), digits=3)```
 
 and extract the bootstrapped lower and upper 95% confidence limits (provided under '2.5 %' and '97.5 %'') to plot yourself (e.g. in with 'ggplot'), with the estimated means copied from the lmer summary output.
 
@@ -119,9 +119,9 @@ You will have to open RStudio in your webbrowser (by clicking  [![Binder](https:
 
 This image of RStudio will have package *rstanarm* installed, and the fly lifespan data we used before will be available to load.
 
-You will have to load the provided script named 'rstanarm_lmer.Rmd'.
+You will have to load the provided script named 'rstanarm_lmer.R'.
 
-In RStudio, go to *File -> Open File*, then choose the file 'rstanarm_lmer.Rmd', located in the folder 'R', click open, and follow the steps outlined in the R script that opens up ('rstanarm_lmer.Rmd').
+In RStudio, go to *File -> Open File*, then choose the file 'rstanarm_lmer.R', located in the folder 'R', click open, and follow the steps outlined in the R script that opens up ('rstanarm_lmer.R').
 
 
 

@@ -14,7 +14,7 @@ Hazard rate, mortality hazard, instantaneous rate of mortality all describe the 
 
 ![](https://github.com/zajitschekteam/lifespananalysis/blob/master/images/hazard_func.png?raw=true) 
 
-with *px* the probability of an individual that is alive at age *x* surviving to age *x* + 1.
+with $p_{x} $ the probability of an individual that is alive at age *x* surviving to age *x* + 1.
 
 A exponential increase in hazard rate is used as a definition of ageing, and hazard rate models have therefore been used widely in this field. 
 
@@ -30,9 +30,9 @@ How the Gompertz function looks like, plotted from age=0 to age=100:
 
 ![](https://github.com/zajitschekteam/lifespananalysis/blob/master/images/Gompertz.png?raw=true) 
 
-You see that in **panel A.**, the baseline parameter *a* is kept constant at a = 0.01. In **B.**, the ageing parameter *b* is kept constant at b = 0.02. Often, you'll see Gompertz curves plotted in their logarithmic form (the logarithm linearizes the exponential curves), as in **panels C and D**.
+You see that in **panel A**, the baseline parameter *a* is kept constant at a = 0.01. In **B.*, the ageing parameter *b* is kept constant at b = 0.02. Often, you'll see Gompertz curves plotted in their logarithmic form (the logarithm linearizes the exponential curves), as in **panels C and D**.
 
-The Makeham parameters are just added constants, elevating the hazard rate across all ages for the same value (for both Gompertz and logistic).
+The Makeham parameters are added constants, elevating the hazard rate across all ages for the same value (for both Gompertz and logistic).
 
 ![](https://github.com/zajitschekteam/lifespananalysis/blob/master/images/Gomp_Make_func.png?raw=true) 
 
@@ -53,6 +53,8 @@ Last, this is how the Makeham extension of the Logistic function looks like:
 ![](https://github.com/zajitschekteam/lifespananalysis/blob/master/images/Logistic_Make_func.png?raw=true) 
 
 ![](https://github.com/zajitschekteam/lifespananalysis/blob/master/images/Logistic_Make.png?raw=true) 
+
+
 
 
 
@@ -77,7 +79,7 @@ I will explain two methods:
 
 1) Probability density function setup
 
-2) Binomial setup
+2) Hazard function setup
 
 
 

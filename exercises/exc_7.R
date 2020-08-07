@@ -1,10 +1,10 @@
 ###CODEBLOCK 7###
 
 #Load packages and data
-suppressMessages((library(dplyr))
-suppressMessages((library(lme4))
-suppressMessages((library(lmerTest))
-data1 <- read.csv(".binder/data/expevol_male_flies.csv")
+suppressMessages(library(dplyr))
+suppressMessages(library(lme4))
+suppressMessages(library(lmerTest))
+data1 <- read.csv("https://github.com/ZajitschekTeam/lifespananalysis/raw/master/binder/data/expevol_male_flies.csv")
 data1 <- data1 %>% mutate(across(where(is.integer), as.factor))
           
 # Run a GeneralLMM in lme4

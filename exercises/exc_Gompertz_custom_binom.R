@@ -33,7 +33,7 @@ data1.long %>%
 group1_4 <- subset(data1, cagediet== 1 & assaydiet== 4)
 
 # Attach the data (careful: in a large script, this isn't recommended, 
-#as it's easy to forget to detach data again)
+# as it's easy to forget to detach data again)
 attach(group1_4)
 
 ### BINOMIAL MORTALITY SETUP ###
