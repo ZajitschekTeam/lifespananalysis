@@ -118,7 +118,9 @@ In ecology and evolution studies, we regularly want to test the effects of more 
 <codeblock id="12">
 </codeblock>
 
+We see that assay diet has a significant effect on survival curves. In the *summary* output of the coxph() model, two levels of assay diet (3 and 4) are tested against the reference level (1). The reference level is chosen automatically, as the first level out of the factor *assaydiet*, ordered in ascending order internally by R. To test whether *assaydiet* had an effect, we ran another model *without assaydiet* that just contained an intercept (coded as ~1), and compared the model containing assaydiet with the model without assaydiet, using the anova() function.
 
+Tests for the proportionality of hazards were **not significant**, and therefore showed that we can assume that hazards are proportional. WE also see this in the diagnostic graphics of the *Schoenfeld residuals*: there is no non-random pattern of the residuals against time.
 
 Mixed Cox PH models with function *coxph* and in package *coxme*.
 

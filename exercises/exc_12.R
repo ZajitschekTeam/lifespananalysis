@@ -22,17 +22,15 @@ summary(surv_cph1)
 
 cox.zph(surv_cph1) 
 
-# Diagnostics
+ggcoxzph(cox.zph(surv_cph1))  # based on plot.cox.ph
 
-ggcoxzph(surv_cph1)  # based on plot.cox.ph
-ggcoxdiagnostics(surv_cph1)  # goodness of fit plots
+# Forest plot for Cox PH model
 
-ggforest(surv_cph1)  # forest plot for Cox PH model
-
-ggcoxadjustedcurves(surv_cph1)  # adjusted survival curves for Cox PH model
+ggforest(surv_cph1)  
 
 
 # Plot survival curves
+
 surv1 <- survfit(Surv(lifespan, status)~ assaydiet, data= group1)
 ggsurvplot(surv1, size= 1.5, conf.int= TRUE,  legend.labs= c("Standard diet", "Rich diet", "Restricted diet"), 
 	xlab = "Adult age (days)", pval = TRUE)

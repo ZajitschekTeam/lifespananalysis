@@ -12,16 +12,27 @@ data1$status <- 1
 # (3 assay diets (= all that are available) from 1 cagediet)
 group1 <- subset(data1, cagediet== 1)
           
-# Run a Cox Proportional Hazards model (CoxPH)
+# Fixed effect Cox PH model again
 
 surv_cph1 <- coxph(Surv(lifespan, status)~ assaydiet, data= group1)
-
 summary(surv_cph1)
 
-# Plot
-surv1 <- survfit(Surv(lifespan, status)~ assaydiet, data= group1)
-ggsurvplot(surv1, size= 1.5, conf.int= TRUE,  legend.labs= c("Standard diet", "Rich diet", "Restricted diet"), 
-	xlab = "Adult age (days)", pval = TRUE)
+# Cox PH model with clustering
+
+surv_cph_cluster <- coxph(Surv(lifespan, status)~ assaydiet + cluster(cage), data= group1)
+summary(surv_cph_cluster)
+
+# Cox PH model with frailty term
+
+surv_cph_frailty <- coxph(Surv(lifespan, status)~ assaydiet + frailty(cage), data= group1)
+summary(surv_cph_cluster)
+
+# Mixed Cox PH model 
+
+surv_cph_mixed <- coxme(Surv(lifespan, status)~ assaydiet + 1|cage, data= group1)
+surv_cph_mixed  # don't use summary() for coxme models; just print
+
+
 
                         
 
