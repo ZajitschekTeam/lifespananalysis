@@ -2,6 +2,7 @@
 
 # Load package and data
 suppressMessages(library(bbmle))
+suppressMessages(library(dplyr))
 data1 <- read.csv("https://github.com/ZajitschekTeam/lifespananalysis/raw/master/binder/data/expevol_male_flies.csv")
 
 ## Convert mortality data to binomial setup
