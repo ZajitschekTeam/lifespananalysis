@@ -1,4 +1,3 @@
-```
 FROM rocker/binder:3.6.3
 
 # Copy repo into ${HOME}, make user own $HOME
@@ -9,4 +8,3 @@ USER ${NB_USER}
 
 ## Run any install.R
 RUN if [ -f install.R ]; then R --quiet -f install.R; fi
-```
