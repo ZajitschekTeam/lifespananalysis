@@ -5,7 +5,7 @@ suppressMessages(library(dplyr))
 suppressMessages(library(lme4))
 suppressMessages(library(lmerTest))
 data1 <- read.csv("https://github.com/ZajitschekTeam/lifespananalysis/raw/master/binder/data/expevol_male_flies.csv")
-data1 <- data1 %>% mutate(across(where(is.integer), as.factor))
+data1 <- data1 %>% mutate_if(is.integer, as.factor)
           
 # Analysis of all data, including cagediet and its interaction term with assaydiet
 lme4_glmm_model2 <- lmer(lifespan ~ cagediet*assaydiet + (1|cage/vial) , data= data1)
