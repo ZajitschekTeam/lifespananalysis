@@ -81,7 +81,18 @@ I will explain two methods:
 
 2) Hazard function setup
 
+
+
 For the probability density function setup, look at this R script:
+
+<codeblock id="14">
+</codeblock>
+
+This is how to set up the hazard function:
+
+<codeblock id="15">
+</codeblock>
+
 
 
 
@@ -109,7 +120,9 @@ If you want to install and use package Survomatic 1.4.0 (which was intended to s
 
 <exercise id="2" title="BaSTA">
 
+We will run **BaSTA** in RStudio in your webbrowser (by clicking  [![Binder](https://mybinder.org/badge_logo.svg)]( https://mybinder.org/v2/gh/zajitschek/RStudioLifespanBayesian/BaSTA?urlpath=rstudio )). It's similar, but not the same RStudio image / environment that we used in the previous chapter for *rstanarm*. 
 
+Once RStudio has been built and has opened in your browser, go to *File -> Open File*, then choose the file 'basta.R', located in the folder 'R', click open, and follow the steps outlined in the R script that opens up ('basta.R').
 
 </exercise>
 
