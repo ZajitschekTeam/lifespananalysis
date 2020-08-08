@@ -9,7 +9,7 @@ data1 <- read.csv("https://github.com/ZajitschekTeam/lifespananalysis/raw/master
 
 # Always change numeric values (both data types 'int' and 'num') that don't hold any 
 # meaningful numeric information into factors
-data1 <- data1 %>% mutate(across(where(is.integer), as.factor))
+data1 <- data1 %>% mutate_if(is.integer, as.factor)
           
 # Have a look at its structure
 str(data1)
