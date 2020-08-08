@@ -122,12 +122,16 @@ We see that assay diet has a significant effect on survival curves. In the *summ
 
 Tests for the proportionality of hazards were **not significant**, and therefore showed that we can assume that hazards are proportional. WE also see this in the diagnostic graphics of the *Schoenfeld residuals*: there is no non-random pattern of the residuals against time.
 
-Mixed Cox PH models with function *coxph* and in package *coxme*.
+Next, we will have a look at **mixed effects Cox PH models** with function ***coxph* (package *survival*)** and  function **coxme (package *coxme*)**. These are probably the models you would be using, if you want to adjust for intra-group correlations, by adding one or more random effects (such as 'container', 'cage', 'population', for example). 
+
+*Note*: while we are only using categorical fixed effects, it is possible to use continuous variables as well (also for cox.ph()).
 
 <codeblock id="13">
 </codeblock>
 
+As you can see, the coefficients of all four models are quite similar in this case. Hazards for flies on assay diet 3 (high protein diet) is positive (0.86) and therefore higher than flies on assay diet 1 (standard diet): they die earlier overall. In contrast, flies on assay diet 4 (restricted diet) show a negative coefficient (-0.38) and therefore die overall later than flies on assay diet 1.
 
+Even the simplest Cox PH model without clustering or any sort of random grouping gives similar answers. We can see why: variable *cage* does not explain much of the variation, with a variance in hazards explained by the fact that flies that are in the same cage have more correlated hazards of only 0.0188.
 
 </exercise>
 
@@ -141,9 +145,9 @@ If you want to do this exercise, you will have to open RStudio in your webbrowse
 
 This image of RStudio will have package *rstanarm* installed, and the fly lifespan data we used before will be available to load.
 
-You will have to load the provided script named 'rstanarm_surv.Rmd'.
+You will have to load the provided script named 'rstanarm_surv.R'.
 
-In RStudio, go to *File -> Open File*, then choose the file 'rstanarm_surv.Rmd', located in the folder 'R', click open, and follow the steps outlined in the R script that opens up ('rstanarm_surv.Rmd').
+In RStudio, go to *File -> Open File*, then choose the file 'rstanarm_surv.Rmd', located in the folder 'R', click open, and follow the steps outlined in the R script that opens up ('rstanarm_surv.R').
 
 
 

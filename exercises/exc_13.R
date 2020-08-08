@@ -25,11 +25,11 @@ summary(surv_cph_cluster)
 # Mixed Cox PH model with frailty term in package 'survival'
 
 surv_cph_frailty <- coxph(Surv(lifespan, status)~ assaydiet + frailty(cage), data= group1)
-summary(surv_cph_cluster)
+summary(surv_cph_frailty)
 
 # Mixed Cox PH model in package 'coxme'
 
-surv_cph_mixed <- coxme(Surv(lifespan, status)~ assaydiet + 1|cage, data= group1)
+surv_cph_mixed <- coxme(Surv(lifespan, status)~ assaydiet + (1|cage), data= group1)
 surv_cph_mixed  # don't use summary() for coxme models; just print
 
 

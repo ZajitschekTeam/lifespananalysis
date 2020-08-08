@@ -81,6 +81,8 @@ I will explain two methods:
 
 2) Hazard function setup
 
+For the probability density function setup, look at this R script:
+
 
 
 If you want to install and use package Survomatic 1.4.0 (which was intended to serve as an R version of WinModest, but unfortunately discontinued; the current version 1.7.0 doesn't seem to work), follow these steps:
