@@ -16,7 +16,7 @@ group1_34 <- subset(data1, cagediet== 1 & (assaydiet== 3 | assaydiet== 4))
           
 # Create a so-called 'survfit'-object
 
-surv1 <- survfit(Surv(lifespan, status)~ 1, data= group1_34)
+surv1 <- survfit(Surv(lifespan, status)~ assaydiet, data= group1_34)
 
 # Plot the two survival curves
 plot(surv1)
