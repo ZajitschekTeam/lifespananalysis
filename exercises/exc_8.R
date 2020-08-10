@@ -11,8 +11,10 @@ data1 <- data1 %>% mutate_if(is.integer, as.factor)
 lme4_glmm_model2 <- lmer(lifespan ~ cagediet*assaydiet + (1|cage/vial) , data= data1)
 
 # Check results with package lmerTest loaded
+print('--------------Output from: anova(lme4_glmm_model2):---------------------')
 anova(lme4_glmm_model2) # with default Satterthwaite's method for df and t-tests
 
+print('--------------Output from: summary(lme4_glmm_model2):-------------------')
 summary(lme4_glmm_model2)
 
 # Examples of diagnostic plots 

@@ -52,7 +52,9 @@ Let's run a first model, restricting our data to flies that evolved on standard 
 No hints or solution necessary here.
 </codeblock>
 
-By loading package *lmerTest*, the anova() function spits out a classic ANOVA table (have a go and see what happens when you instead run the model with 'lme4::lmer(...)' and use the anova function, as in the script). This means we get p-values for every fixed effect (in our case, 'assaydiet'). It's the same for the 'summary()' command', only that we get p-values for the differences between the reference diet, shown under '(Intercept)' and set to 'assaydiet 1' automatically, since R ordered the levels of factor 'assaydiet' and treated the numbers, that are saved as characters, as numeric values for this purpose (if you want to reorder levels, search for function 'relevel'). If you would like to add the missing contrast between assaydiet 3 and assaydiet 4, you could use packages *multcomp* that implements corrections for multiple testing:
+By loading package *lmerTest*, the anova() function spits out a classic ANOVA table (have a go and see what happens when you instead run the model with 'lme4::lmer(...)' and use the anova function, as in the script). 
+
+This means we get p-values for every fixed effect (in our case, 'assaydiet'). It's the same for the 'summary()' command', only that we get p-values for the differences between the reference diet, shown under '(Intercept)' and set to 'assaydiet 1' automatically, since R ordered the levels of factor 'assaydiet' and treated the numbers, that are saved as characters, as numeric values for this purpose (if you want to reorder levels, search for function 'relevel'). If you would like to add the missing contrast between assaydiet 3 and assaydiet 4, you could use packages *multcomp* that implements corrections for multiple testing:
 
 ```R
 library(multcomp)

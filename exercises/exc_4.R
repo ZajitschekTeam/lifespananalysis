@@ -10,18 +10,18 @@ data1 <- read.csv("https://github.com/ZajitschekTeam/lifespananalysis/raw/master
 # Have a look at its structure
 str(data1)
 
-data1 <- data1 %>% mutate(across(where(is.integer), as.factor))
+data1 <- data1 %>% mutate_if(is.integer, as.factor)
           
 # Calculate mean, median, CIs
-groupwiseMean(lifespan ~ 1, data = data1, boot = TRUE, R = 1000, traditional = FALSE, bca = TRUE, percentile = TRUE)
-groupwiseMedian(lifespan ~ 1, data = data1, boot= T, bca = TRUE, percentile = TRUE)
+groupwiseMean(lifespan ~ 1, data = data1, boot = TRUE, R = 1000, traditional = FALSE, bca = TRUE, percentile = TRUE)[,3:9]
+median(data1$lifespan)
           
 # Plot histogram and indicate mean and median values
 hist(data1$lifespan, main = "Histogram of lifespan data")
-       abline(v = mean(data1$lifespan), col = "blue", lwd = 3.5, )
-       abline(v = median(data1$lifespan), col = "red", lwd = 3.5)
-       text(59, 1575, label = 'Mean', cex = 1.2)
-       text(47, 1625, label = 'Median', cex = 1.2)
+       abline(v = mean(data1$lifespan), col = "blue", lwd = 2, )
+       abline(v = median(data1$lifespan), col = "red", lwd = 2)
+       text(52, 1285, label = 'Median', cex = 1.2)
+       text(40, 1225, label = 'Mean', cex = 1.2)
 
 
                         

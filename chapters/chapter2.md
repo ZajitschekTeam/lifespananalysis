@@ -33,8 +33,8 @@ In the previous R code, we calculated maximum lifespan as the maximum lifespan o
 
 ```
 library(dplyr)
-lifespan_data %>% 
-  summarise(meanTop10percent = mean(x[x >= quantile(x, 0.9) ] ))
+lifespan_data %>% as.data.frame() %>%
+  summarise(meanTop10percent = mean(.[.<= quantile(., 0.9)] ))
 ```
 This definition of maximum lifespan seems more relevant in samples that just have one or very few (compared to the overall sample size) very old individuals. If in doubt, report both.
 
@@ -51,6 +51,8 @@ Whenever you report mean or median, a measure of variation around these statisti
 <codeblock id="3">
 Type in the code from above to load lifespan data, and to calculate mean and median lifespan, and the their corresponding 95% confidence intervals.
 </codeblock>
+
+For the median, it's normally sufficient to report point estimates (without confidence intervals). But  have a look at the help file of *groupwiseMedian* (execute *?groupwiseMedian*) to read more about the available options.
 
 Let's try this with another data set. R and its packages come with provided data sets. You can see the available data sets in your session (given the packages you loaded) with the command:
 

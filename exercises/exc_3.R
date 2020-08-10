@@ -16,9 +16,9 @@ lifespan_data <- c(1,3,4,4,4,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,6,6,7,7,7,7,7,7,7,7,7
 
 lifespan_data <- lifespan_data %>% as.data.frame() %>% rename(., lifespan = .) #we use pipes (%>%) from dplyr here
 
-groupwiseMean(lifespan ~ 1, data = lifespan_data, boot = TRUE, R = 1000, traditional = FALSE, bca = TRUE, percentile = TRUE)
+groupwiseMean(lifespan ~ 1, data = lifespan_data, boot = TRUE, R = 1000, traditional = FALSE, bca = TRUE, percentile = TRUE)[,3:9]
 
-groupwiseMedian(lifespan ~ 1, data = lifespan_data, bca = TRUE, percentile = TRUE, basic = TRUE)
+groupwiseMedian(lifespan ~ 1, data = lifespan_data, boot= TRUE, R = 1000, bca=F, exact=T)[,3:7]
 
 
 

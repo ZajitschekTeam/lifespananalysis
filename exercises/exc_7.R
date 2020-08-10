@@ -9,8 +9,12 @@ data1 <- data1 %>% mutate_if(is.integer, as.factor)
           
 # Run a General LMM in lme4 
 
-lme4_glmm_model1 <- lmerTest::lmer(lifespan ~ cagediet*assaydiet + (1|cage/vial), data= subset(data1, cagediet== "1"))
-anova(lme4_glmm_model1)
+lme4_glmm_model1 <- lmerTest::lmer(lifespan ~ assaydiet + (1|cage/vial), data= subset(data1, cagediet== "1"))
+
+print('--------------Output from: anova(lme4_glmm_model1):---------------------')
+print(anova(lme4_glmm_model1))
+
+print('--------------Output from: summary(lme4_glmm_model1):-------------------')
 summary(lme4_glmm_model1)
 
                         

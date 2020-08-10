@@ -11,9 +11,10 @@ data1 <- read.csv("https://github.com/ZajitschekTeam/lifespananalysis/raw/master
 # meaningful numeric information into factors
 data1 <- data1 %>% mutate_if(is.integer, as.factor)
           
-# Have a look at its structure
-str(data1)
+# Have a look at the data
 glimpse(data1)
+
+#The following printout is a little long, but have a look at the groupwise sample sizes (n)
 
 data1 %>% group_by(cage) %>% count()
 
