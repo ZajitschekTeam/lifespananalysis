@@ -128,6 +128,6 @@ Once RStudio has been built and has opened in your browser, go to *File -> Open 
 
 <exercise id="3" title="A short go at modelling interaction effects on Gompertz parameters">
 
-
+**--------------------UNDER CONSTRUCTION--------------------**
 
 </exercise>
