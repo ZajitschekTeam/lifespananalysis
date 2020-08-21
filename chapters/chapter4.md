@@ -109,7 +109,7 @@ Easy. The p-value from the logrank-test is very small, as expected from the dive
 
 
 
-<exercise id="2" title="Cox proportional hazards (Cox PH)">
+<exercise id="3" title="Cox proportional hazards (Cox PH)">
 
 # Cox proportional hazard (Cox PH) models
 
@@ -135,7 +135,7 @@ Even the simplest Cox PH model without clustering or any sort of random grouping
 
 </exercise>
 
-<exercise id="3" title="Survival analysis as a Bayesian">
+<exercise id="4" title="Survival analysis as a Bayesian">
 
 # rstanarm::stan_surv
 
